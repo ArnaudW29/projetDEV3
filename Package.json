@@ -1,16 +1,21 @@
 {
-  "name": "server",
+  "name": "projetdev3",
   "version": "1.0.0",
-  "description": "devgames",
+  "description": "ProjetDev3",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "test"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnaudW29/projetDEV3.git"
+  },
   "author": "arnaud",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArnaudW29/projetDEV3/issues"
+  },
+  "homepage": "https://github.com/ArnaudW29/projetDEV3#readme",
   "dependencies": {
     "express": "^4.17.1"
   }

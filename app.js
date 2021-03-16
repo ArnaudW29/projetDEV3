@@ -4,8 +4,10 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname,'FRONTEND ','/index.html'));
 });
+
+
 
 app.listen(port, () => console.log(`projetDev3 on port ${port}!`));

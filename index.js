@@ -4,7 +4,7 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 
 
-app.get('*', function(req, res) {
+app.get('/FRONTEND', function(req, res) {
     res.sendFile(path.join(__dirname,'FRONTEND ','/index.html'));
 });
 

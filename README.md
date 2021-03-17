@@ -9,3 +9,5 @@ Nous sommes des eleves en 2TI de l'[Ephec](https://www.ephec.be/)
 * [WAETERMANS Arnaud](https://github.com/ArnaudW29)
 * [BOTTY Sébastien](https://github.com/sebastienbotty)
 * [DELANNOIT Grégoire](https://github.com/thegregouze)
+## Description :
+Site de jeu simple en ligne

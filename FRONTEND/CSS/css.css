@@ -1,0 +1,10 @@
+footer{
+    position:absolute;
+    font-style: italic;
+    text-align: center;
+    left:0;right:0;bottom: 0;
+    width: 100%;
+}
+#titre{
+    text-align: center;
+}

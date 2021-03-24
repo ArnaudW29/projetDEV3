@@ -8,6 +8,14 @@ footer{
 #titre{
     text-align: center;
 }
+/** light cyan**/
+body {
+    background-image: url("../img/bg_clair.jpg");
+}
+
+nav{
+    background-image: url("../img/bg_flash.jpg");
+}
 nav{
     position: relative;
     height: 150px;

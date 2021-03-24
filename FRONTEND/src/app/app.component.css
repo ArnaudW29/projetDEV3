@@ -1,8 +1,3 @@
-/*
-DAXHELET Nicolas
-23/3/21
-*/
-
 * {
 	box-sizing: border-box;
 }
@@ -38,29 +33,6 @@ header {
 	width: 50%;
 }
 
-#logo {
-	float: left;
-	width: 15%;
-	height: 100%;
-}
-
-#page_logo {
-	max-height: 63px;
-	max-width: 63px;
-}
-
-#name {
-	float: left;
-	width: 65%;
-	height: 100%;
-}
-
-#login {
-	float: left;
-	width: 20%;
-	height: 100%;
-}
-
 #main {
 	float: left;
   	padding: 10px;
@@ -80,6 +52,11 @@ header {
 
 #game_logos div img:hover {
 	border: 1px solid #e95420 !important;
+	border-radius: 10px;
+}
+
+#ranking tr td img:hover {
+	border: 1px solid #fff !important;
 	border-radius: 10px;
 }
 
@@ -111,47 +88,6 @@ header {
 	height: 100%;
 }
 
-table {
-	width: 100%;
-}
-
-table th {
-	color: #e95420;
-}
-
-#ranking tr td img {
-	max-width: 25px;
-	max-height: 25px;
-}
-
-#ranking tr td img:hover {
-	border: 1px solid #fff !important;
-	border-radius: 10px;
-}
-
-#scores {
-	border: 1px solid #fff;
-	border-collapse: collapse;
-}
-
-#scores th {
-	border: 1px solid #fff;
-}
-
-#scores td {
-	border-left: 1px solid #fff;
-	border-right: 1px solid #fff;
-	color: #fff
-}
-
-#scores td::first-child {
-	border-left: none;
-}
-
-#scores td::last-child {
-	border-right: none;
-}
-  
 /* Clear floats after the columns */
 header::after, section::after, #game_logos::after {
 	content: "";
@@ -161,14 +97,8 @@ header::after, section::after, #game_logos::after {
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
-	#main, #side, #logo, #name, #login, #game_1, #game_2, #game_3, #game_4 {
+	#main, #game_1, #game_2, #game_3, #game_4, #side {
 	  width: 100%;
 	  height: auto;
-	}
-	#game_logos {
-		height: 280px;
-	}
-	#logo, #name, #login {
-		background-color: #77216f;
-	}
+    }
 }

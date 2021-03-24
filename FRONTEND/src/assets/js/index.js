@@ -1,7 +1,3 @@
-/*
-DAXHELET Nicolas
-23/3/21
-*/
 //Déclaration des variables
 let game_1_description = "<p class='horizontal_center'>ceci est la description du premier jeu</p>"
 let game_2_description = "<p class='horizontal_center'>ceci est la description du deuxieme jeu</p>"
@@ -59,6 +55,7 @@ function get_description(game_number) {
 			break	
 	}
 }
+
 
 function get_leaderboard(game_number) {
 	let table = document.getElementById("scores")

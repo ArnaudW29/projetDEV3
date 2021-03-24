@@ -10,11 +10,11 @@ footer{
 }
 /** light cyan**/
 body {
-    background-image: url("../img/bg_clair.jpg");
+    background-image: url("../IMG/bg_clair.jpg");
 }
 
 nav{
-    background-image: url("../img/bg_flash.jpg");
+    background-image: url("../IMG/bg_flash.jpg");
 }
 nav{
     position: relative;

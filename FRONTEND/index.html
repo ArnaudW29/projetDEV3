@@ -1,62 +1,68 @@
+<!--
+DAXHELET Nicolas
+23/3/21
+-->
 <!DOCTYPE html>
 <html lang="fr">
-   <head>
-      <meta charset="utf-8">
-      <title>DevGames</title>
-      <!-- description text that displays below the link in google search results -->
-      <meta name="description" content="Site de jeu en ligne" />
-      <link rel="stylesheet" type="text/css" href="CSS/css.css">
-      <style>
-      </style>
-   </head>
-   <body>
-      <!-- en tête de page -->
-      <header>
-         <!-- menu de navigation -->
-         <nav>
-            <a href="index.html">
-               <img id="imgDevgames" src="IMG/logomaquette.png" alt="Image du logo" href="index.html">
-            </a>
-            <ul>
-               <!-- Inscription -->
-               <li>
-                  <a href="inscription.html" title="Inscription">Inscription</a>
-               </li>
-               <!-- 421 (jeu 1) -->
-               <li>
-                  <a href="421.html" title="Jeu 421">Le 421</a>
-               </li>
-               <!-- puissance 4 (jeu 2) -->
-               <li class>
-                  <a href="puissance4.html" title="Panier">Puissance 4 </a>
-               </li>
-               <!-- Classement -->
-               <li>
-                  <a href="classement.html" title="Classement des différents jeux">Classement</a>
-               </li>
-               <!-- Accueil -->
-               <li>
-                  <a href="index.html" title="Page d'accueil">Accueil</a>
-               </li>
-            </ul>
-         </nav>
-      </header>
-      <section class="page-wrap">
-         <header>
-            <div id="titre">
-               <h1>DevGames</h1>
-            </div>
-         </header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu velit tempus, pulvinar velit eu, laoreet
-               est. Nulla vel massa at mauris pellentesque imperdiet. Donec tempor egestas nisl nec faucibus. Ut congue
-               semper nisl eget lobortis. Aliquam vulputate dolor mi, vitae gravida nunc porta sit amet. Nullam
-               finibus, nisl quis suscipit lacinia, diam justo hendrerit nisl, accumsan sodales risus lacus non quam.
-               Proin dignissim tempor arcu, et aliquam erat accumsan eget.
-            </p>
-         <footer>
-            <small>Ce site est fictif. <br>Projet 2021 développement informatique BAC 2</small>
-         </footer>
-      </section>
-      <!-- page-wrap -->
-   </body>
-</html>
+<head>
+  <meta charset=utf-8>
+  <title>wip - projet dev web iii</title>
+  <script src="JS/index.js"></script>
+  <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body onload="initialiserPage();">
+  <header>
+    <div class="vertical_center" id="logo">
+      <img src="IMG/page_logo.png" class="horizontal_center" alt="logo site" id="page_logo">
+    </div>
+
+    <div class="vertical_center" id="name">
+      <p>NOM DU SITE</p>
+    </div>
+
+    <div class="vertical_center" id="login">
+      <p>CONNECTION</p>
+    </div>
+  </header>
+
+  <section>
+    <div id="main">
+      <article id="game_logos">
+        <div id="game_1">
+          <img src="IMG/logo.png" class="horizontal_center" alt="image jeu 1" id="game_1_image" onclick="get_description('game_1')">
+        </div>
+  
+        <div id="game_2">
+          <img src="IMG/logo.png" class="horizontal_center" alt="image jeu 2" id="game_2_image"  onclick="get_description('game_2')">
+        </div>
+        
+        <div id="game_3">
+          <img src="IMG/logo.png" class="horizontal_center" alt="image jeu 3" id="game_3_image"  onclick="get_description('game_3')">
+        </div>
+        
+        <div id="game_4">
+          <img src="IMG/logo.png" class="horizontal_center" alt="image jeu 4" id="game_4_image"  onclick="get_description('game_4')">
+        </div>
+      </article>
+
+      <article id="active_game_description"></article>
+    </div>
+
+    <div id="side">
+      <table id="ranking">
+        <tr>
+          <th colspan="4">Classements</th>
+        </tr>
+
+        <tr>
+          <td><img src="IMG/logo.png" class="horizontal_center" id="game_logo_1" alt="image jeu 1" onclick="get_leaderboard('game_1')"></td>
+          <td><img src="IMG/logo.png" class="horizontal_center" id="game_logo_2" alt="image jeu 2" onclick="get_leaderboard('game_2')"></td>
+          <td><img src="IMG/logo.png" class="horizontal_center" id="game_logo_3" alt="image jeu 3" onclick="get_leaderboard('game_3')"></td>
+          <td><img src="IMG/logo.png" class="horizontal_center" id="game_logo_4" alt="image jeu 4" onclick="get_leaderboard('game_4')"></td>
+        </tr>
+
+        <table id="scores"></table>
+      </table>
+    </div>
+  </section>
+</body>

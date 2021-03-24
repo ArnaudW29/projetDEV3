@@ -8,3 +8,41 @@ footer{
 #titre{
     text-align: center;
 }
+nav{
+    position: relative;
+    height: 150px;
+    width: 100%;
+}
+nav li{
+    margin-top: 25px;
+    float: right;
+    list-style-type: none;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+nav li:nth-child(1){
+    margin-right: 50px;
+}
+nav a{
+    color: #00008b;
+    text-decoration: none;
+    font-family: Leelawadee,sans-serif;
+    font-size: 28px;
+    padding: 0 0.15em;
+    width: 7em;
+    display: inline-block;
+    text-align: center;
+}
+nav a:hover{
+    color: darkred;
+}
+
+nav a:active{
+    color: black;
+}
+#imgDevgames{
+    position: absolute;
+    top: 20px;
+    width: 200px;
+    left: 5%;
+}

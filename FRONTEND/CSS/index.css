@@ -1,0 +1,174 @@
+/*
+DAXHELET Nicolas
+23/3/21
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+html, body, section {
+	height: 100%;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+	background-color: #77216f;
+	height: 60px;
+	text-align: center;
+	font-size: 20px;
+	color: #e95420;
+}
+
+.vertical_center {
+	margin: 0;
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+.horizontal_center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+#logo {
+	float: left;
+	width: 15%;
+	height: 100%;
+}
+
+#page_logo {
+	max-height: 63px;
+	max-width: 63px;
+}
+
+#name {
+	float: left;
+	width: 65%;
+	height: 100%;
+}
+
+#login {
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+#main {
+	float: left;
+  	padding: 10px;
+	width: 70%;
+	height: 100%;
+	background-color: #fff;
+}
+
+#game_logos {
+	height: 60px;
+}
+
+#game_logos div img {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+#game_logos div img:hover {
+	border: 1px solid #e95420 !important;
+	border-radius: 10px;
+}
+
+#game_1, #game_2, #game_3, #game_4 {
+	float: left;
+  	padding: 10px;
+	width: 25%;
+	height: 100%;
+	background-color: #fff;
+}
+
+#active_game_description {
+	height: 80%;
+	text-align: center;
+	color: #e95420;
+}
+
+#active_game_description p {
+	border: 1px solid #77216f;
+	border-radius: 5px;
+	padding: 10px
+}
+
+#side {
+	float: left;
+	width: 30%;
+	background: #5e2750;
+	padding: 20px;
+	height: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+table th {
+	color: #e95420;
+}
+
+#ranking tr td img {
+	max-width: 25px;
+	max-height: 25px;
+}
+
+#ranking tr td img:hover {
+	border: 1px solid #fff !important;
+	border-radius: 10px;
+}
+
+#scores {
+	border: 1px solid #fff;
+	border-collapse: collapse;
+}
+
+#scores th {
+	border: 1px solid #fff;
+}
+
+#scores td {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	color: #fff
+}
+
+#scores td::first-child {
+	border-left: none;
+}
+
+#scores td::last-child {
+	border-right: none;
+}
+  
+/* Clear floats after the columns */
+header::after, section::after, #game_logos::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+	#main, #side, #logo, #name, #login, #game_1, #game_2, #game_3, #game_4 {
+	  width: 100%;
+	  height: auto;
+	}
+	#game_logos {
+		height: 280px;
+	}
+	#logo, #name, #login {
+		background-color: #77216f;
+	}
+}

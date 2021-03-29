@@ -20,21 +20,3 @@ table th {
 	border: 1px solid #fff;
 	border-collapse: collapse;
 }
-
-#scores th {
-	border: 1px solid #fff;
-}
-
-#scores td {
-	border-left: 1px solid #fff;
-	border-right: 1px solid #fff;
-	color: #fff
-}
-
-#scores td::first-child {
-	border-left: none;
-}
-
-#scores td::last-child {
-	border-right: none;
-}

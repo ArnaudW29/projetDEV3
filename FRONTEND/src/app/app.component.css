@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-html, body, section {
-	height: 100%;
-}
-
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -72,12 +68,6 @@ header {
 	height: 80%;
 	text-align: center;
 	color: #e95420;
-}
-
-#active_game_description p {
-	border: 1px solid #77216f;
-	border-radius: 5px;
-	padding: 10px
 }
 
 #side {

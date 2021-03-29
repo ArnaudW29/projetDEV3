@@ -1,3 +1,4 @@
+/BACKEND/script-api-rest/node_modules
 /node_modules
 npm-debug.log
 /.env

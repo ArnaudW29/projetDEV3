@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## usage
+
+inside FRONTEND folder :
+
+```
+npm install -g @angular/cli
+npm install --save-dev @angular-devkit/build-angular
+npm install --save-dev @angular/cli@latest
+```
+
+run the angular server :
+
+```
+ng serve
+```

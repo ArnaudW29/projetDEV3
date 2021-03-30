@@ -1,6 +1,7 @@
 /node_modules
 /BACKEND/script-api-rest/node_modules
 /FRONTEND/node_modules
+/FRONTEND/dist
 npm-debug.log
 /.env
 .DS_Store

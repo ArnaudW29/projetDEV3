@@ -34,6 +34,7 @@ inside FRONTEND folder :
 npm install -g @angular/cli
 npm install --save-dev @angular-devkit/build-angular
 npm install --save-dev @angular/cli@latest
+ng add @angular/material
 ```
 
 run the angular server :

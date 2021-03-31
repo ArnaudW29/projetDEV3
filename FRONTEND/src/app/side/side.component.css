@@ -1,22 +1,8 @@
 table {
-	width: 100%;
+  width: 100%;
+  margin-top: 1em;
 }
 
-table th {
-	color: #e95420;
-}
-
-#ranking tr td img {
-	max-width: 25px;
-	max-height: 25px;
-}
-
-#ranking tr td img:hover {
-	border: 1px solid #fff !important;
-	border-radius: 10px;
-}
-
-#scores {
-	border: 1px solid #fff;
-	border-collapse: collapse;
+#rankings td {
+  text-align: center;
 }

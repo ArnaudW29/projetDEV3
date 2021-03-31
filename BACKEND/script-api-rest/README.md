@@ -1,6 +1,6 @@
 ## usage
 
-inside script-api-rest folder :
+inside root folder :
 ```
 npm install express --save
 npm install --save-dev nodemon

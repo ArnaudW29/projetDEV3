@@ -9,21 +9,19 @@ router.get('/', function (req, res) {
     });
 });
 
+let json_data = require('../BACKEND/script-BDD/temp_data.json');
+
 // get game1 leaderbord
-let game_1_leaderboard = {"pseudo1": "XXXX", "pseudo2": "XXXY", "pseudo3": "XYXY", "pseudo4": "YYYX", "pseudo5": "YYYY"}
-router.get('/game_1', (req, res) => res.send(game_1_leaderboard));
+router.get('/game_1', (req, res) => res.send(json_data.games[0].hardcoded_leaderboard));
 
 // get game2 leaderbord
-let game_2_leaderboard = {"pseudo4": "XYYX", "pseudo3": "XXY", "pseudo1": "XYXY"}
-router.get('/game_2', (req, res) => res.send(game_2_leaderboard));
+router.get('/game_2', (req, res) => res.send(json_data.games[1].hardcoded_leaderboard));
 
 // get game3 leaderbord
-let game_3_leaderboard = {"pseudo2": "X"}
-router.get('/game_3', (req, res) => res.send(game_3_leaderboard));
+router.get('/game_3', (req, res) => res.send(json_data.games[2].hardcoded_leaderboard));
 
 // get game4 leaderbord
-let game_4_leaderboard = {"pseudo6": "XXXX", "pseudo7": "XXXY", "pseudo10": "YYYY"}
-router.get('/game_4', (req, res) => res.send(game_4_leaderboard));
+router.get('/game_4', (req, res) => res.send(json_data.games[3].hardcoded_leaderboard));
 
 // test post request
 // app.post("/add", (req, res) => {

@@ -57,7 +57,7 @@ export class SideComponent implements OnInit {
     let xhr = new XMLHttpRequest();
     let leaderboard = {};
     let str = '<tr style="border:1px solid #fff;color:#e95420"><th colspan="2">pseudo</th><th colspan="2">nb points</th></tr>';
-    xhr.open('get','http://localhost:5000/leaderboard/' + game_number);
+    xhr.open('get','http://localhost:3000/leaderboard/' + game_number);
     xhr.onload = function(){
       leaderboard = JSON.parse(xhr.responseText);
       let pseudos = Object.keys(leaderboard)

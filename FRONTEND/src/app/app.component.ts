@@ -55,7 +55,7 @@ export class AppComponent {
     let xhr = new XMLHttpRequest();
     let leaderboard = {};
     let str = '<tr style="border:1px solid #fff;color:#e95420"><th colspan="2">pseudo</th><th colspan="2">nb points</th></tr>';
-    xhr.open('get','http://localhost:5000/description/' + game_number);
+    xhr.open('get','http://localhost:3000/description/' + game_number);
     xhr.onload = function(){
       description.innerHTML = xhr.responseText
     }

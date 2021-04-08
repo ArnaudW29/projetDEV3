@@ -35,6 +35,7 @@ npm install -g @angular/cli
 npm install --save-dev @angular-devkit/build-angular
 npm install --save-dev @angular/cli@latest
 ng add @angular/material
+npm install --save @angular/flex-layout @angular/cdk
 ```
 
 run the angular server :

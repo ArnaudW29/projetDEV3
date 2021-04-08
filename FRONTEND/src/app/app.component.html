@@ -1,15 +1,1 @@
-<app-header></app-header>
-<mat-drawer-container class="example-container">
-  <mat-drawer-content>
-    <table>
-      <tr>
-        <td><button mat-mini-fab color="accent" aria-label="game 1" (click)="get_game_description('game_1')">1</button></td>
-        <td><button mat-mini-fab color="accent" aria-label="game 2" (click)="get_game_description('game_2')">2</button></td>
-        <td><button mat-mini-fab color="accent" aria-label="game 3" (click)="get_game_description('game_3')">3</button></td>
-        <td><button mat-mini-fab color="accent" aria-label="game 4" (click)="get_game_description('game_4')">4</button></td>
-      </tr>
-    </table>
-    <mat-card *ngIf="description">{{ description }}</mat-card>
-  </mat-drawer-content>
-  <mat-drawer mode="side" opened position="end"><app-side></app-side></mat-drawer>
-</mat-drawer-container>
+<router-outlet></router-outlet>

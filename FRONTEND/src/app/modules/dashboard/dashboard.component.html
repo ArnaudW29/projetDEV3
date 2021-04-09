@@ -23,4 +23,10 @@
 
 <br>
 
-<mat-card *ngIf="description">{{ description }}</mat-card>
+<mat-card *ngIf="description">
+  {{ description }}
+
+  <br>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="{{ '/' + active_game_number }}">play now!</a>
+</mat-card>

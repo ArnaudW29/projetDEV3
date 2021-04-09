@@ -17,6 +17,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+
+import { OpponentComponent } from './widgets/cards/opponent/opponent.component';
+import { ChatComponent } from './widgets/chat/chat.component';
+import { AdminComponent } from './widgets/cards/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SidebarComponent,
     GameComponent,
     LeaderboardComponent,
+    OpponentComponent,
+    ChatComponent,
+    AdminComponent,
   ],
   imports: [
     CommonModule,
@@ -36,13 +44,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     GameComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    OpponentComponent,
+    ChatComponent,
+    AdminComponent,
   ]
 })
 export class SharedModule { }

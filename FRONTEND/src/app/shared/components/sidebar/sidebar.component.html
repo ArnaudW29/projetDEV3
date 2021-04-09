@@ -1,4 +1,4 @@
-<mat-nav-list>
+<mat-nav-list fxLayout="column">
   <div class="profile-card">
     <div class="header">
       <h2>Nicolas Daxhelet</h2>
@@ -12,5 +12,12 @@
   <h2 matSubheader>Leaderboards</h2>
 
   <app-widget-leaderboard></app-widget-leaderboard>
+
+  <mat-divider></mat-divider>
+
+  <mat-card>
+    <app-widget-admin *ngIf="userIsAdmin"></app-widget-admin>
+  </mat-card>
+
 
 </mat-nav-list>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +7,16 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
+  sideBarOpen = true;
+  userIsAdmin = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen
   }
 
 }

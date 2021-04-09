@@ -13,24 +13,15 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.scss']
 })
-export class LeaderboardComponent implements OnInit, AfterViewInit {
+export class LeaderboardComponent implements OnInit {
 
   displayedColumns: string[] = ['pseudo', 'score'];
   leaderboard!: Leaderboard[];
   leaderboard_subscription!: Subscription;
-  dataSource: any;
 
   constructor(private activeGameService: ActiveGameService) {}
 
   ngOnInit(): void {
-    this.leaderboard_subscription = this.activeGameService.observable_leaderboard.subscribe(active_leaderboard => this.leaderboard = active_leaderboard as Leaderboard[])
-    this.dataSource = new MatTableDataSource<Leaderboard>(this.leaderboard);
-  }
-
-  @ViewChild(MatPaginator, { read: true })
-  paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.leaderboard_subscription = this.activeGameService.observable_leaderboard.subscribe(observable_leaderboard => this.leaderboard = observable_leaderboard)
   }
 }

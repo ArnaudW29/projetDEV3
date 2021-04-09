@@ -1,3 +1,4 @@
+import { GameWindowComponent } from './modules/game-window/game-window.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { IndexComponent } from './layouts/index/index.component';
 
@@ -10,6 +11,18 @@ const routes: Routes = [{
   children: [{
     path: '',
     component: DashboardComponent,
+  },{
+    path:'game_1',
+    component: GameWindowComponent,
+  },{
+    path:'game_2',
+    component: GameWindowComponent,
+  },{
+    path:'game_3',
+    component: GameWindowComponent,
+  },{
+    path:'game_4',
+    component: GameWindowComponent,
   }]
 }];
 

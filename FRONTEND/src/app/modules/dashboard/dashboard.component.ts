@@ -21,7 +21,6 @@ export interface Leaderboard {
 export class DashboardComponent implements OnInit {
 
   description: any;
-  description_subscription!: Subscription;
   active_game_number: string = ''
 
   constructor(private activeGameService: ActiveGameService) {}
@@ -36,7 +35,5 @@ export class DashboardComponent implements OnInit {
     this.activeGameService.get_leaderboard(game_number);
   }
 
-  ngOnInit(): void {
-    this.description_subscription = this.activeGameService.observable_description.subscribe(active_description => this.description = active_description)
-  }
+  ngOnInit(): void {  }
 }

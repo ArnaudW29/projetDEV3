@@ -38,6 +38,12 @@ ng add @angular/material
 npm install --save @angular/flex-layout @angular/cdk
 ```
 
+chat experiment :
+```
+npm install --save ngx-textarea-autosize
+npm install socket.io-client @types/socket.io --save
+```
+
 run the angular server :
 
 ```

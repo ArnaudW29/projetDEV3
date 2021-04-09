@@ -18,6 +18,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 
 import { OpponentComponent } from './widgets/cards/opponent/opponent.component';
 import { ChatComponent } from './widgets/chat/chat.component';
@@ -45,7 +49,10 @@ import { AdminComponent } from './widgets/cards/admin/admin.component';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    TextareaAutosizeModule
   ],
   exports: [
     HeaderComponent,

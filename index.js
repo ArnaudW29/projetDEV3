@@ -51,6 +51,6 @@ app.use(function(err,req,res,next){
 // Use Api routes in the App
 app.use('/api', apiRoutes);
 // Launch app to listen to specified port
-app.listen(port, function () {
+server = app.listen(port, function () {
     console.log("Running RestHub on port " + port);
 });

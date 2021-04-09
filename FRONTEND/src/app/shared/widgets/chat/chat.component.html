@@ -1,1 +1,64 @@
-<p>chat works!</p>
+<div>
+  <div>
+
+    <h2>Ingame Chat</h2>
+
+    <hr>
+
+  </div>
+  <div>
+    <div>
+      <div>
+        <form>
+          <mat-form-field class="example-full-width">
+
+            <mat-label>{{ username }}</mat-label>
+
+            <input matInput>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="col-sm-5">
+        <label for="roomInput">Choose room</label>
+        <select name="roomInput" id="roomInput" class="form-control">
+            <option value="Lobby">Lobby</option>
+            <option value="Hall">Hall</option>
+            <option value="Deluxe">Deluxe</option>
+        </select>
+    </div> -->
+    <!-- <div class="col sm-2">
+        <div style="margin-top:19px;" class="pull-right">
+            <button type="button" class="btn btn-primary">Join</button>
+            <button type="button" class="btn btn-default">Leave</button>
+        </div>
+    </div> -->
+  </div>
+
+  <div>
+    <div style="height:200px; padding:15px;" class="message_log">
+
+      <span><strong>username : </strong> this is realtime.</span>
+
+    </div>
+  </div>
+  <div>
+    <div>
+
+      <form>
+        <mat-form-field  class="message_input">
+          <mat-label>message</mat-label>
+
+            <textarea matInput autosize maxlength="200" max-rows="20"></textarea>
+
+        </mat-form-field>
+      </form>
+
+    </div>
+    <div>
+
+      <button mat-stroked-button color="primary">Send</button>
+
+    </div>
+  </div>
+</div>

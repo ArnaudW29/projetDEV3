@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
 
   toggleSideBar() {
     this.toggleSideBarEvent.emit();
-    console.log('cccv');
   }
 
 }

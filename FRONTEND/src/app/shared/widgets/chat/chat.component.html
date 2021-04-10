@@ -12,9 +12,8 @@
         <form>
           <mat-form-field class="example-full-width">
 
-            <mat-label>{{ username }}</mat-label>
-
-            <input matInput>
+            <mat-label>enter chat username here</mat-label>
+            <input matInput [(ngModel)]="chat_username" name="username">
           </mat-form-field>
         </form>
       </div>
@@ -27,19 +26,19 @@
             <option value="Deluxe">Deluxe</option>
         </select>
     </div> -->
-    <!-- <div class="col sm-2">
+    <div class="col sm-2">
         <div style="margin-top:19px;" class="pull-right">
-            <button type="button" class="btn btn-primary">Join</button>
-            <button type="button" class="btn btn-default">Leave</button>
+            <button mat-stroked-button color="primary" (click)="join()">Join</button>
+            <button mat-stroked-button color="primary" (click)="leave()">Leave</button>
         </div>
-    </div> -->
+    </div>
   </div>
 
   <div>
     <div style="height:200px; padding:15px;" class="message_log">
-
-      <span><strong>username : </strong> this is realtime.</span>
-
+      <div *ngFor="let item of messageArray">
+        <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+      </div>
     </div>
   </div>
   <div>
@@ -49,7 +48,7 @@
         <mat-form-field  class="message_input">
           <mat-label>message</mat-label>
 
-            <textarea matInput autosize maxlength="200" max-rows="20"></textarea>
+            <textarea matInput autosize maxlength="200" max-rows="20" [(ngModel)]="messageText" name="messageText"></textarea>
 
         </mat-form-field>
       </form>
@@ -57,7 +56,7 @@
     </div>
     <div>
 
-      <button mat-stroked-button color="primary">Send</button>
+      <button mat-stroked-button color="primary" (click)="sendMessage()">Send</button>
 
     </div>
   </div>

@@ -9,7 +9,7 @@
 
   <mat-divider></mat-divider>
 
-  <app-widget-leaderboard [selectedGame]="selectedGame"></app-widget-leaderboard>
+  <app-widget-leaderboard [selectedGame]="selectedGame" *ngIf="selectedGame"></app-widget-leaderboard>
 
   <mat-divider *ngIf="userIsAdmin"></mat-divider>
 

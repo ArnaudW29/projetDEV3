@@ -1,9 +1,8 @@
+import { Leaderboard } from './app.component';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-
-import { Leaderboard, Description } from './app.component';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,21 +10,16 @@ import { BehaviorSubject } from 'rxjs';
 export class ActiveGameService {
 
   url: string = "http://localhost:3000/";
+  game_url!: string;
 
-  description: any = '';
-  leaderboard: any = '';
-  activeGame: string = '';
-
-  private changeActiveLeaderboardBehaviorSubject = new BehaviorSubject(this.leaderboard);
-  observable_leaderboard = this.changeActiveLeaderboardBehaviorSubject.asObservable();
-
-  private changeActiveDescriptionBehaviorSubject = new BehaviorSubject(this.description);
-  observable_description = this.changeActiveLeaderboardBehaviorSubject.asObservable();
+  private activeGame = new Subject<string>(); // Source
+  activeGame$ = this.activeGame.asObservable(); // Stream
 
   constructor(private httpClient: HttpClient) { }
 
   changeActiveGame(game: string) {
-    this.activeGame = game;
+    this.activeGame.next(game);
+    this.game_url = game;
   }
 
   getActiveGame() {
@@ -33,10 +27,10 @@ export class ActiveGameService {
   }
 
   getDescription() {
-    return this.httpClient.get(this.url + 'description/' + this.activeGame);
+    return this.httpClient.get(this.url + 'description/' + this.game_url);
   }
 
   getLeaderboard() {
-    return this.httpClient.get<Leaderboard[]>(this.url + 'leaderboard/' + this.activeGame);
+    return this.httpClient.get<Leaderboard[]>(this.url + 'leaderboard/' + this.game_url);
   }
 }

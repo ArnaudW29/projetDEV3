@@ -11,6 +11,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 // fxflex module import
 import {FlexLayoutModule} from "@angular/flex-layout";
@@ -28,7 +29,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatDividerModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ]
 })
 export class AngularMaterialModule { }

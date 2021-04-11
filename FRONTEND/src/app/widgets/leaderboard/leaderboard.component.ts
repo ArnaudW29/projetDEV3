@@ -1,26 +1,28 @@
-import { ActiveGameService } from './../../active-game.service';
 import { Leaderboard } from './../../app.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActiveGameService } from './../../active-game.service';
 
-import { Component, OnInit, Input } from '@angular/core';
-
-import { Subscription } from 'rxjs';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-widget-leaderboard',
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.scss']
 })
-export class LeaderboardComponent implements OnInit {
+export class LeaderboardComponent implements OnInit, OnChanges {
 
   @Input() selectedGame: string = '';
 
   displayedColumns: string[] = ['pseudo', 'score'];
-  leaderboard!: Leaderboard[];
-  leaderboard_subscription!: Subscription;
+  leaderboard: any;
 
   constructor(private activeGameService: ActiveGameService) {}
 
   ngOnInit(): void {
-    this.leaderboard_subscription = this.activeGameService.observable_leaderboard.subscribe(observable_leaderboard => this.leaderboard = observable_leaderboard)
+
+  }
+
+  ngOnChanges() {
+    this.activeGameService.getLeaderboard().subscribe( leaderboard => this.leaderboard = new MatTableDataSource<Leaderboard>(leaderboard));
   }
 }

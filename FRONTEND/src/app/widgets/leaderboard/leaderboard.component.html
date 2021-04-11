@@ -1,6 +1,6 @@
-<div class="mat-elevation-z8" *ngIf="selectedGame">
+<div class="mat-elevation-z8">
 
-  <h2 matSubheader>Leaderboard</h2>
+  <h2 matSubheader>{{ selectedGame }} leaderboard</h2>
 
   <table mat-table [dataSource]="leaderboard">
 

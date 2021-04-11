@@ -1,17 +1,8 @@
-import { ActiveGameService } from './../../shared/active-game.service';
+// import services
+import { ActiveGameService } from './../../active-game.service';
 
+// default imports
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-
-export interface description {
-  name: string;
-  description: string;
-}
-
-export interface Leaderboard {
-  pseudo: string;
-  score: string;
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -21,19 +12,17 @@ export interface Leaderboard {
 export class DashboardComponent implements OnInit {
 
   description: any;
-  active_game_number: string = ''
+  activeGame: string = '';
 
-  constructor(private activeGameService: ActiveGameService) {}
+  constructor(private activeGameService: ActiveGameService) { }
 
-  get_game_data(game_number: string) {
-    this.activeGameService.get_description(game_number)
-      .subscribe(response => {
-        this.active_game_number = game_number;
-        this.description = response;
-        this.activeGameService.change_active_description(this.description)
-    });
-    this.activeGameService.get_leaderboard(game_number);
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {  }
+  changeActiveGame(game: string) {
+    this.activeGame = game;
+    this.activeGameService.changeActiveGame(game);
+    this.activeGameService.getDescription().subscribe(description => { this.description = description });
+  }
+
 }

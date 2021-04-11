@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+      <button mat-icon-button routerLinkActive="active" routerLink="">devgames</button>
+
+      <div fxFlex fxLayoutAlign="flex-end">
+          <ul fxLayout="row" fxLayoutGap="20px">
+
+              <li *ngIf="userIsAdmin">
+                  <button mat-icon-button routerLinkActive="active" routerLink="/admin">
+                      <mat-icon>settings</mat-icon>
+                  </button>
+              </li>
+
+              <li>
+                  <button mat-icon-button routerLinkActive="active" routerLink="/about">
+                      <mat-icon>help_outline</mat-icon>
+                  </button>
+              </li>
+
+              <li>
+
+                <button mat-button [matMenuTriggerFor]="menu">
+                  <mat-icon>person_outline</mat-icon>
+                </button>
+
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLinkActive="active" routerLink="/profile">profile</button>
+
+                  <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    Sign out
+                  </button>
+
+                </mat-menu>
+              </li>
+
+              <li>
+                <button mat-icon-button (click)="toggleSideBar()">
+                  <mat-icon>menu</mat-icon>
+                </button>
+              </li>
+
+          </ul>
+      </div>
+  </mat-toolbar-row>
+</mat-toolbar>

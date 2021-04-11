@@ -8,9 +8,11 @@ let cors = require('cors');
 let app = express();
 let path = require('path');
 
-// real time chat
-let server = require('http').createServer(app)
-var io = require('socket.io')(server, {
+// socket.io experiment - real time chat
+let http = require('http');
+let server = http.createServer(app);
+let socketIO = require('socket.io');
+let io = socketIO(server, {
     cors: {
       origin: "https://localhost:4200",
       methods: ["GET", "POST"]

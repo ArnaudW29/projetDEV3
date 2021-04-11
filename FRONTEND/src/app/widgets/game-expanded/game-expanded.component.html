@@ -1,0 +1,10 @@
+<div fxLayout="row">
+  <div fxFlex="60">
+    <img src="https://picsum.photos/500/300" alt="">
+  </div>
+  <div fxFlex="40" fxLayout="column">
+    <div fxFlex="60">{{ description }}</div>
+
+    <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="{{ '/' + activeGame }}">play now!</button>
+  </div>
+</div>

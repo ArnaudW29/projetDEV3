@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<app-header [userIsAdmin]="userIsAdmin" (toggleSideBarEvent)="sidebarToggler()"></app-header>
+
+<mat-drawer-container>
+
+  <mat-drawer mode="side" [opened]="sideBarOpen" position="end">
+      <app-sidebar [userIsAdmin]="userIsAdmin"></app-sidebar>
+  </mat-drawer>
+
+  <mat-drawer-content>
+      <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>

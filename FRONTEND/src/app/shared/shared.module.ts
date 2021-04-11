@@ -1,69 +1,32 @@
-import { LeaderboardComponent } from './widgets/tables/leaderboard/leaderboard.component';
-import { GameComponent } from './widgets/cards/game/game.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { HeaderComponent } from './components/header/header.component';
+// import other modules
+import { WidgetsModule } from './../widgets/widgets.module';
 
-import { RouterModule } from '@angular/router';
+// import all module components
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
 
+// angular material imports
+import { AngularMaterialModule } from './../angular-material/angular-material.module';
+
+// default imports
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatIconModule } from '@angular/material/icon'
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-
-import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
-
-import { OpponentComponent } from './widgets/cards/opponent/opponent.component';
-import { ChatComponent } from './widgets/chat/chat.component';
-import { AdminComponent } from './widgets/cards/admin/admin.component';
+import { AppRoutingModule } from './../app-routing.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SidebarComponent,
-    GameComponent,
-    LeaderboardComponent,
-    OpponentComponent,
-    ChatComponent,
-    AdminComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatIconModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatListModule,
-    MatButtonModule,
-    HttpClientModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    TextareaAutosizeModule,
-    FormsModule
+    AngularMaterialModule,
+    AppRoutingModule,
+    WidgetsModule
   ],
   exports: [
     HeaderComponent,
-    SidebarComponent,
-    GameComponent,
-    LeaderboardComponent,
-    OpponentComponent,
-    ChatComponent,
-    AdminComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }

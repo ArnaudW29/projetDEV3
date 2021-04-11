@@ -1,3 +1,7 @@
+//service imports
+import { AdminService } from './../../admin.service';
+
+// default imports
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLogsComponent implements OnInit {
 
-  constructor() { }
+  adminMessageArray:any = [];
+
+  constructor(private _adminService: AdminService) {
+    this._adminService.getAdminMessages()
+    .subscribe(data => this.adminMessageArray = data);
+  }
 
   ngOnInit(): void {
   }

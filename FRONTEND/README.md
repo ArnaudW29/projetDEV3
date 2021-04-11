@@ -77,4 +77,5 @@ ng g m angular-material
 ng g service chat
 ng g s user
 ng g s active-game
+ng g s admin
 ```

@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'demo';
 
   username: any;
   userIsAdmin: boolean = true;

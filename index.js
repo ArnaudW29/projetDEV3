@@ -65,6 +65,7 @@ var db = mongoose.connection;
 // initialize routes
 app.use('/description',require('./router/description'));
 app.use('/leaderboard',require('./router/leaderboard'));
+app.use('/admin',require('./router/admin'));
 
 
 // Added check for DB connection

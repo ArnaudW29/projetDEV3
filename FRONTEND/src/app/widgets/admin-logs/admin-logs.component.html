@@ -1,1 +1,5 @@
-<p>admin-logs works!</p>
+<h2>admin logs</h2>
+
+<div *ngFor="let item of adminMessageArray">
+  <span><strong>{{item.username}} : </strong> {{item.request}}</span>
+</div>

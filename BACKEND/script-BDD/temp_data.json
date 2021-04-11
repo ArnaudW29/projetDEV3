@@ -34,5 +34,15 @@
                 {"pseudo":"pseudo10","score":"YYYY"}
             ]
         }
+    ],
+    "admin_logs":[
+        {
+            "username":"test_user",
+            "request":"ban request of stupid_user"
+        },
+        {
+            "username":"super_moron",
+            "request":"unban me plz"
+        }
     ]
 }

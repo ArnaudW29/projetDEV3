@@ -1,7 +1,5 @@
 // Import express
 let express = require('express');
-// Import Mongoose
-let mongoose = require('mongoose');
 // import cors
 let cors = require('cors');
 // Initialise the app
@@ -50,29 +48,18 @@ let io = socketIO(server, {
 });
 
 // Import routes
-let apiRoutes = require("./router/description");
+let apiRoutes = require("./server/router/description");
 // Configure bodyparser to handle post requests
 app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
 app.use(cors());
-// Connect to Mongoose and set connection variable
-mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true});
-var db = mongoose.connection;
 
 // initialize routes
-app.use('/description',require('./router/description'));
-app.use('/leaderboard',require('./router/leaderboard'));
-app.use('/admin',require('./router/admin'));
-
-
-// Added check for DB connection
-if(!db)
-    console.log("Error connecting db")
-else
-    console.log("Db connected successfully")
+app.use('/description',require('./server/router/description'));
+app.use('/leaderboard',require('./server/router/leaderboard'));
+app.use('/admin',require('./server/router/admin'));
 
 // Setup server port
 var port = process.env.PORT || 3000;

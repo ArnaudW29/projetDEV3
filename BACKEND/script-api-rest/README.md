@@ -19,3 +19,5 @@ run the node server :
 ```
 nodemon index
 ```
+npm i mongodb --save
+rem pour lier la bdd

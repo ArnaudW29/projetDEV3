@@ -17,7 +17,6 @@ const gameid_4 = "607735a259476cd653c5f930";
 
 // get game1 description
 router.get('/game_1', function(req, res){
-    console.log('get request for all videos');
     Game.findById(gameid_1).exec(function(err, games){
         if(err){
             console.log("Error retrieving game 1");

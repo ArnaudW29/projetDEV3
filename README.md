@@ -12,3 +12,24 @@ Nous sommes des eleves en 2TI de l'[Ephec](https://www.ephec.be/)
 * [DAXHELET Nicolas](https://github.com/nicodax)
 ## Description :
 Site de jeu simple en ligne
+
+
+# DEPENDENCIES
+
+```
+REM set up Angular Material : use Indigo/Pink, default settings
+ng add @angular/material 
+REM set up Angular Flex-Layout
+npm install --save @angular/flex-layout @angular/cdk
+REM install express, path, mongoose, cors
+npm i --save express path mongoose cors
+```
+
+## run local app
+
+```
+REM build static angular files
+ng build --prod
+REM run express server  
+node server
+```

@@ -1,3 +1,11 @@
+// ce module concerne tous les composants situes dans le dossier
+// "shared" et permet de gerer les importations necessaires a leur
+// fonctionnement ainsi que l'exportation de ces composants
+
+// les composants declares dans ce module sont des composants utilises
+// peu importe la page de l'application dans laquelle l'utilisateur se
+// situe (a savoir le header et la barre laterale)
+
 // import other modules
 import { WidgetsModule } from './../widgets/widgets.module';
 

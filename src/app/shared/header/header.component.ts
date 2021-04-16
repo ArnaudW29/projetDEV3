@@ -15,6 +15,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /**
+   * 
+   * emet un evenement signalant au composant parent (app.component) l'intention de l'utilisateur
+   * de toggle la barre laterale
+   * 
+   */
   toggleSideBar() {
     this.toggleSideBarEvent.emit();
   }

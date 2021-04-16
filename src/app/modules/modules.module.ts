@@ -1,3 +1,11 @@
+// ce module concerne tous les composants situes dans le dossier
+// "modules" et permet de gerer les importations necessaires a leur
+// fonctionnement ainsi que l'exportation de ces composants
+
+// les composants declares dans ce module correspondent au composant
+// parent de chaque page de l'application (about, admin, dashboard,
+// game-screen, profile), a l'exception de la barre laterale des jeux
+// qui est elle inclue au sein du composant game-screen
 
 // import other modules
 import { WidgetsModule } from './../widgets/widgets.module';

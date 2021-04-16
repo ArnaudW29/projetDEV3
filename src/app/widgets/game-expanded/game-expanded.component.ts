@@ -14,12 +14,21 @@ export class GameExpandedComponent implements OnInit, OnChanges {
 
   description: any;
 
+  /**
+   * 
+   * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
+   * 
+   */
   constructor(private activeGameService: ActiveGameService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
-
+  /**
+   * 
+   * lors d'un changement de l'input (ici activeGame), appelle la methode getDescription() de active-game.service
+   * afin de recuperer la description corresondant au nouveau jeu selectione
+   * 
+   */
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
   }

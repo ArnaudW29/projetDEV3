@@ -1,4 +1,14 @@
+// ce module concerne tous les composants situes dans le dossier
+// "widgets" et permet de gerer les importations necessaires a leur
+// fonctionnement ainsi que l'exportation de ces composants
+
+// les composants declares dans ce module correspondent aux "blocs de 
+// construction" utilises pour former les composants des dossier "modules"
+// et "shared"
+
+// service imports
 import { ChatService } from './../chat.service';
+
 // other imports
 import { FormsModule } from '@angular/forms';
 

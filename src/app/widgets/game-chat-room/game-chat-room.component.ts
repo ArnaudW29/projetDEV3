@@ -9,7 +9,6 @@ export class GameChatRoomComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

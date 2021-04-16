@@ -18,12 +18,25 @@ export class AppComponent {
 
   sideBarOpen: boolean = true;
 
+  /**
+   * 
+   * toggle la valeur de la variable sideBarOpen. celle-ci est utilisee pour definir l'etat ouvert ou ferme de la barre laterale
+   * 
+   */
   sidebarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
+  /**
+   * 
+   * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
+   * 
+   */
   constructor(private userService: UserService) { }
 
+  /**
+   * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
+   */
   ngOnInit() {
     this.username = this.userService.getUsername();
   }

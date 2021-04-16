@@ -13,15 +13,29 @@ import { Component, OnInit } from '@angular/core';
 export class AdminLogsComponent implements OnInit {
 
   adminMessageArray:any = [];
-
+  /**
+   * 
+   * souscrit a la methode getAdminMessages() de admin.service pour que sa propre variable adminMessageArray
+   * soit toujours à synchronisée par rapport à la base de donnee
+   * 
+   * @param _adminService - admin.service
+   * @param userService - user.service ; declare ici afin de pouvoir etre utilise au sein de la methode
+   *      transformUserIdIntoUsername()
+   */
   constructor(private _adminService: AdminService, private userService: UserService) {
     this._adminService.getAdminMessages()
     .subscribe(data => this.adminMessageArray = data);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  /**
+   * 
+   * appelle la methode getUsernameFromId() de user.service
+   * 
+   * @param userId - id a transformer en nom d'utilisateur
+   * @returns - le nom d'utilisateur associe a userId
+   */
   transformUserIdIntoUsername(userId){
     return this.userService.getUsernameFromId(userId).subscribe();
   }

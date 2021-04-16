@@ -3,6 +3,12 @@ const express = require('express');
 const path = require('path');
 let cors = require('cors');
 
+// express app creation
+const app = express();
+
+// variables
+const port = process.env.PORT || 3000
+
 // mongoose import & connexion
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
@@ -15,12 +21,6 @@ mongoose.connect(db, function(err){
         console.error('Error : ' + err);
     }
 });
-
-// variables
-const port = process.env.PORT || 3000
-
-// express app creation
-const app = express();
 
 // link to angular static files
 app.use(express.static(path.join(__dirname, 'dist')));

@@ -16,12 +16,21 @@ export class LeaderboardComponent implements OnInit, OnChanges {
   displayedColumns: string[] = ['pseudo', 'score'];
   leaderboard: any;
 
+  /**
+   * 
+   * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
+   * 
+   */
   constructor(private activeGameService: ActiveGameService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
-
+  /**
+   * 
+   * lors d'un changement de l'input (ici selectedGame), appelle la methode getLeaderboard() de active-game.service
+   * afin de recuperer le leaderboard corresondant au nouveau jeu selectione
+   * 
+   */
   ngOnChanges() {
     this.activeGameService.getLeaderboard().subscribe( leaderboard => this.leaderboard = new MatTableDataSource<Leaderboard>(leaderboard));
   }

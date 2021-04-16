@@ -1,3 +1,6 @@
+// ce module permet d'activer le routing angular
+// en fonction de l'url, le composant "router-outlet" redirigera vers le composant aproprie
+
 import { AboutComponent } from './modules/about/about.component';
 import { GameScreenComponent } from './modules/game-screen/game-screen.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';

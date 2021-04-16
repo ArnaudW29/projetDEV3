@@ -1,3 +1,8 @@
+// ce module permet de centraliser l'entierete des importations 
+// angular material afin d'eviter qu'ils soient disperses au sein
+// des differents composants angular
+// ps : importe aussi fxflex car utilise frequemment
+
 // default imports
 import { NgModule } from '@angular/core';
 

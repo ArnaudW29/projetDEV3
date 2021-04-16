@@ -12,10 +12,15 @@ export class SidebarComponent implements OnInit {
 
   selectedGame: string = '';
 
+   /**
+   * 
+   * souscrit a la valeur de la variable activeGame de active-game.service pour que sa propre variable selectedGame soit
+   * toujours à jour en fonction du jeu selectionne
+   * 
+   * @param activeGameService - active-game.service
+   */
   constructor(private activeGameService: ActiveGameService) {
-    this.activeGameService.activeGame$.subscribe(activeGame => {
-      this.selectedGame = activeGame;
-    });
+    this.activeGameService.activeGame$.subscribe(activeGame => {this.selectedGame = activeGame;});
   }
 
   ngOnInit(): void { }

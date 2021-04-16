@@ -1,8 +1,10 @@
 // service imports
 import { UserService } from './user.service';
+import { ActiveGameService } from './active-game.service';
 
 // default imports
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -32,13 +34,24 @@ export class AppComponent {
    * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
    * 
    */
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private activeGameService: ActiveGameService) { }
 
   /**
    * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
    */
   ngOnInit() {
     this.username = this.userService.getUsername();
+  }
+
+  /**
+   * 
+   * change la valeur de la variable activeGame du service active-game.service et recupere
+   * la description associee au nouveau jeu actif
+   * 
+   * @param game - la nouvelle valeur de activeGame
+   */
+   dropActiveGame() {
+    this.activeGameService.changeActiveGame('');
   }
 
 }

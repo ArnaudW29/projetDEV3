@@ -19,7 +19,9 @@ export class DashboardComponent implements OnInit {
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans changeActiveGame()
    * 
    */
-  constructor(private activeGameService: ActiveGameService) { }
+  constructor(private activeGameService: ActiveGameService) {
+    this.activeGameService.activeGame$.subscribe(activeGame => {this.activeGame = activeGame;});
+  }
 
   ngOnInit(): void { }
 
@@ -31,7 +33,6 @@ export class DashboardComponent implements OnInit {
    * @param game - la nouvelle valeur de activeGame
    */
   changeActiveGame(game: string) {
-    this.activeGame = game;
     this.activeGameService.changeActiveGame(game);
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
   }

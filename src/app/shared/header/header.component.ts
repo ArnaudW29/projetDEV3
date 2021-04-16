@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   @Input() userIsAdmin!: boolean;
 
   @Output() toggleSideBarEvent: EventEmitter<any> = new EventEmitter();
+  @Output() dropActiveGame: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -23,6 +24,16 @@ export class HeaderComponent implements OnInit {
    */
   toggleSideBar() {
     this.toggleSideBarEvent.emit();
+  }
+
+  /**
+   * 
+   * emet un evenement signalant au composant parent (app.component) l'intention de l'utilisateur
+   * de changer de jeu actif
+   * 
+   */
+   selectActiveGame() {
+    this.dropActiveGame.emit();
   }
 
 }

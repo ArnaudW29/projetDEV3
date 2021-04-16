@@ -8,22 +8,50 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './modules/admin/admin.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { TicTacToeComponent } from './widgets/tic-tac-toe/tic-tac-toe.component';
+import { QuatreCentVingtEtUnComponent } from './widgets/quatre-cent-vingt-et-un/quatre-cent-vingt-et-un.component';
+import { PuissanceQuatreComponent } from './widgets/puissance-quatre/puissance-quatre.component';
+import { GarticPhonesComponent } from './widgets/gartic-phones/gartic-phones.component';
 
 const routes: Routes = [{
   path: '',
   component: DashboardComponent,
 },{
   path: 'game_1',
-  component: GameScreenComponent
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
 },{
   path: 'game_2',
-  component: GameScreenComponent
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: QuatreCentVingtEtUnComponent
+    }
+  ]
 },{
   path: 'game_3',
-  component: GameScreenComponent
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: PuissanceQuatreComponent
+    }
+  ]
 },{
   path: 'game_4',
-  component: GameScreenComponent
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: GarticPhonesComponent
+    }
+  ]
 },{
   path: 'admin',
   component: AdminComponent

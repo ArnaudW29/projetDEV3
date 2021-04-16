@@ -27,6 +27,11 @@ import { AngularMaterialModule } from './../angular-material/angular-material.mo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './../app-routing.module';
+import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
+import { QuatreCentVingtEtUnComponent } from './quatre-cent-vingt-et-un/quatre-cent-vingt-et-un.component';
+import { PuissanceQuatreComponent } from './puissance-quatre/puissance-quatre.component';
+import { GarticPhonesComponent } from './gartic-phones/gartic-phones.component';
+import { SquareComponent } from './tic-tac-toe/square/square.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { AppRoutingModule } from './../app-routing.module';
     GameExpandedComponent,
     GameIconComponent,
     LeaderboardComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    TicTacToeComponent,
+    QuatreCentVingtEtUnComponent,
+    PuissanceQuatreComponent,
+    GarticPhonesComponent,
+    SquareComponent
   ],
   imports: [
     AppRoutingModule,
@@ -49,7 +59,11 @@ import { AppRoutingModule } from './../app-routing.module';
     GameExpandedComponent,
     GameIconComponent,
     LeaderboardComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    TicTacToeComponent,
+    QuatreCentVingtEtUnComponent,
+    PuissanceQuatreComponent,
+    GarticPhonesComponent
   ],
   providers: [
     ChatService

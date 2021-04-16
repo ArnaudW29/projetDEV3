@@ -1,19 +1,19 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
   
-        <button mat-icon-button routerLinkActive="active" routerLink="" (click)="selectActiveGame()">devgames</button>
+        <button mat-icon-button routerLinkActive="active" routerLink="" (click)="dropActiveGame()">devgames</button>
   
         <div fxFlex fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
   
                 <li *ngIf="userIsAdmin">
-                    <button mat-icon-button routerLinkActive="active" routerLink="/admin">
+                    <button mat-icon-button routerLinkActive="active" routerLink="/admin" (click)="dropActiveGame()">
                         <mat-icon>settings</mat-icon>
                     </button>
                 </li>
   
                 <li>
-                    <button mat-icon-button routerLinkActive="active" routerLink="/about">
+                    <button mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
                         <mat-icon>help_outline</mat-icon>
                     </button>
                 </li>
@@ -25,7 +25,7 @@
                   </button>
   
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item routerLinkActive="active" routerLink="/profile">profile</button>
+                    <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">profile</button>
   
                     <button mat-menu-item>
                       <mat-icon>exit_to_app</mat-icon>

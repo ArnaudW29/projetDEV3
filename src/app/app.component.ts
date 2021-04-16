@@ -18,7 +18,7 @@ export class AppComponent {
 
   selectedGame: string = '';
 
-  sideBarOpen: boolean = true;
+  sideBarOpen: boolean = false;
 
   /**
    * 

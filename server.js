@@ -8,7 +8,6 @@ const app = express();
 
 // variables
 const port = process.env.PORT || 3000*
-const uri = process.env.MONGODB_URI;
 
 
 // mongoose import & connexion

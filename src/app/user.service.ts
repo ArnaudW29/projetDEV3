@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  url: string = "http://localhost:3000/";
+  url: string = "https://devgames3.herokuapp.com/";
 
   username: string = 'currentUser';
 

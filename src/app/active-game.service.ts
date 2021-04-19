@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class ActiveGameService {
 
-  url: string = "http://localhost:3000/";
+  url: string = "https://devgames3.herokuapp.com/";
   game_url!: string;
 
   private activeGame = new Subject<string>(); // Source

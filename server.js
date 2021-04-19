@@ -12,13 +12,12 @@ const port = process.env.PORT || 3000*
 
 
 // mongoose import & connexion
-const uri = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-//const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
+const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
-mongoose.connect(uri, function(err){
+mongoose.connect(db, function(err){
     if(err){
         console.error('Error : ' + err);
     }

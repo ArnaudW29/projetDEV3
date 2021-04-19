@@ -5,20 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
-  
-  url: string = 'http://localhost:3000/';
+
+  url: string = 'https://devgames3.herokuapp.com/';
 
   /**
-   * 
+   *
    * @param httpClient - importe du module @angular/comon/http ; declare ici afin de pouvoir etre utilise dans AdminService
-   * 
+   *
    */
   constructor(private httpClient: HttpClient) { }
 
   /**
-   * 
+   *
    * effectue une requete http vers le serveur express afin de recuperer la liste des reports d'utilisateurs
-   * 
+   *
    * @returns la liste des reports d'utilisateurs
    */
   getAdminMessages() {

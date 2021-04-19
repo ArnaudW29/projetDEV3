@@ -9,23 +9,23 @@ import { Subject } from 'rxjs';
 })
 export class ActiveGameService {
 
-  url: string = "http://localhost:3000/";
+  url: string = "https://devgames3.herokuapp.com/";
   game_url!: string;
 
   private activeGame = new Subject<string>(); // Source
   activeGame$ = this.activeGame.asObservable(); // Stream
 
   /**
-   * 
+   *
    * @param httpClient - importe du module @angular/comon/http ; declare ici afin de pouvoir etre utilise dans ActiveGameService
-   * 
+   *
    */
   constructor(private httpClient: HttpClient) { }
 
   /**
-   * 
+   *
    * change la valeur de activeGame et de game_url
-   * 
+   *
    * @param game - nouveau jeu actif
    */
   changeActiveGame(game: string) {
@@ -34,7 +34,7 @@ export class ActiveGameService {
   }
 
   /**
-   * 
+   *
    * @returns la valeur de activeGame
    */
   getActiveGame() {
@@ -42,9 +42,9 @@ export class ActiveGameService {
   }
 
   /**
-   * 
+   *
    * effectue une requete http vers le serveur express afin de recuperer la description du jeu actif
-   * 
+   *
    * @returns la description du jeu actif
    */
   getDescription() {
@@ -52,9 +52,9 @@ export class ActiveGameService {
   }
 
   /**
-   * 
+   *
    * effectue une requete http vers le serveur express afin de recuperer le leaderboard du jeu actif
-   * 
+   *
    * @returns le leaderboard du jeu actif
    */
   getLeaderboard() {

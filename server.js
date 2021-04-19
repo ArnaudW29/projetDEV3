@@ -14,10 +14,10 @@ const port = process.env.PORT || 3000*
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-
-const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
+//const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
-mongoose.connect(db, function(err){
+mongoose.connect(uri, function(err){
     if(err){
         console.error('Error : ' + err);
     }

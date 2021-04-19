@@ -7,7 +7,7 @@ let cors = require('cors');
 const app = express();
 
 // variables
-const port = process.env.PORT || 3000*
+const port = process.env.PORT || 3000
 
 
 // mongoose import & connexion

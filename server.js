@@ -1,6 +1,7 @@
 // express & path & cors import
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 let cors = require('cors');
 
 // express app creation

@@ -1,4 +1,4 @@
-// ce module permet de centraliser l'entierete des importations 
+// ce module permet de centraliser l'entierete des importations
 // angular material afin d'eviter qu'ils soient disperses au sein
 // des differents composants angular
 // ps : importe aussi fxflex car utilise frequemment
@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule } from '@angular/material/select';
 
 // fxflex module import
 import {FlexLayoutModule} from "@angular/flex-layout";
@@ -35,7 +36,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ]
 })
 export class AngularMaterialModule { }

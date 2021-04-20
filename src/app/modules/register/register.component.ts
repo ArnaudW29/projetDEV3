@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(){
+    // verification des champs du form
     this.registerForm = this.formBuilder.group({
       'username': [this.user.username, [
         Validators.required,

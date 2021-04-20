@@ -22,6 +22,7 @@ export class TicTacToeComponent implements OnInit {
     this.squares = Array(9).fill(null);
     this.winner = null;
     this.xIsNext = true;
+    this.isDisabled = false;
   }
 
   get player() {

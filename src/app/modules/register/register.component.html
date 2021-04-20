@@ -1,0 +1,38 @@
+<mat-card>
+<mat-card-content>
+<div class="medium-list">
+    <div class="">
+      <form [formGroup]="registerForm">
+        <div class="form-container">
+          <div class="username-input">
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="username"
+                   matInput
+                   formControlName="username"
+                   [(ngModel)]="user.username"
+                   placeholder="Enter your username">
+          </mat-form-field>
+          </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="password"
+                   matInput
+                   formControlName="password"
+                   [(ngModel)]="user.password"
+                   placeholder="Enter your password">
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="email"
+                   matInput
+                   formControlName="email"
+                   [(ngModel)]="user.email"
+                   placeholder="Enter your email">
+          </mat-form-field>
+          <br>
+          <button mat-button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+</div>
+</mat-card-content>
+</mat-card>
+

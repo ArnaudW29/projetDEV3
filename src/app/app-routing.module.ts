@@ -12,6 +12,7 @@ import { TicTacToeComponent } from './widgets/tic-tac-toe/tic-tac-toe.component'
 import { QuatreCentVingtEtUnComponent } from './widgets/quatre-cent-vingt-et-un/quatre-cent-vingt-et-un.component';
 import { PuissanceQuatreComponent } from './widgets/puissance-quatre/puissance-quatre.component';
 import { GarticPhonesComponent } from './widgets/gartic-phones/gartic-phones.component';
+import { RegisterComponent } from './modules/register/register.component';
 
 const routes: Routes = [{
   path: '',
@@ -61,7 +62,11 @@ const routes: Routes = [{
 },{
   path: 'about',
   component: AboutComponent
-}];
+},{
+  path: 'register',
+  component: RegisterComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

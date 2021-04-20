@@ -2,7 +2,7 @@
 <mat-card-content>
 <div class="medium-list">
     <div class="">
-      <form [formGroup]="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()" noval>
         <div class="form-container">
           <div class="username-input">
           <mat-form-field class="full-width" appearance="outline">
@@ -28,7 +28,7 @@
                    placeholder="Enter your email">
           </mat-form-field>
           <br>
-          <button mat-button type="submit">Register</button>
+          <button mat-button type="submit" class="mat-raised-button mat-primary" [disabled]="!registerForm.valid">Register</button>
         </div>
       </form>
     </div>

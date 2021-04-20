@@ -1,48 +1,51 @@
+
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-  
-        <button mat-icon-button routerLinkActive="active" routerLink="" (click)="dropActiveGame()">devgames</button>
-  
+
+        <button mat-button routerLinkActive="active" routerLink="" (click)="dropActiveGame()">devgames</button>
+
         <div fxFlex fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
-  
-                <li *ngIf="userIsAdmin">
+              <li>
+                <button mat-button routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
+                  Register
+                </button>
+              </li>
+              <li>
+                <button mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
+                  <mat-icon>help_outline</mat-icon>
+                </button>
+              </li>
+              <li *ngIf="userIsAdmin">
                     <button mat-icon-button routerLinkActive="active" routerLink="/admin" (click)="dropActiveGame()">
-                        <mat-icon>settings</mat-icon>
+                        <mat-icon>admin_panel_settings</mat-icon>
                     </button>
-                </li>
-  
+              </li>
+
                 <li>
-                    <button mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
-                        <mat-icon>help_outline</mat-icon>
-                    </button>
-                </li>
-  
-                <li>
-  
-                  <button mat-button [matMenuTriggerFor]="menu">
+
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon>person_outline</mat-icon>
                   </button>
-  
+
                   <mat-menu #menu="matMenu">
                     <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">profile</button>
-  
+
                     <button mat-menu-item>
                       <mat-icon>exit_to_app</mat-icon>
                       Sign out
                     </button>
-  
+
                   </mat-menu>
                 </li>
-  
+
                 <li>
                   <button mat-icon-button (click)="toggleSideBar()">
                     <mat-icon>menu</mat-icon>
                   </button>
                 </li>
-  
+
             </ul>
         </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  

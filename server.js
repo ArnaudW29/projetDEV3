@@ -9,11 +9,11 @@ const app = express();
 // variables
 const port = process.env.PORT || 3000
 
+
 // mongoose import & connexion
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-
 const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
 mongoose.connect(db, function(err){

@@ -31,7 +31,8 @@ app.use(cors());
 app.use('/description', require('./server/routes/description'));
 app.use('/leaderboard', require('./server/routes/leaderboard'));
 app.use('/admin', require('./server/routes/admin'));
-// app.use('/users', require('./server/routes/users'));
+app.use('/users', require('./server/routes/users'));
+app.use('/images', require('./server/routes/images'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));

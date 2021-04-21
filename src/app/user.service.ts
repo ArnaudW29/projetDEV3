@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  url: string = "https://devgames3.herokuapp.com/";
+  url: string = "localhost:3000/";
 
   username: string = 'currentUser';
 
@@ -35,6 +35,6 @@ export class UserService {
    * @returns le nom d'utilisateur recherche
    */
   getUsernameFromId(userId){
-    return this.httpClient.get(this.url + 'users/' + userId);
+    return this.httpClient.get(this.url + 'users/username/' + userId);
   }
 }

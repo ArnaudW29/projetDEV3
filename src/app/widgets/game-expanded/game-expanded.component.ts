@@ -13,6 +13,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   @Input() activeGame!: string;
 
   description: any;
+  gameImageUrl: String = "";
 
   /**
    * 
@@ -31,6 +32,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    */
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
+    this.gameImageUrl = "http://localhost:3000/images/games/" + this.activeGame;
   }
 
 }

@@ -6,7 +6,9 @@ const reportSchema = new Schema({
     reporter: String,
     reported: String,
     msg: String,
-    validation: Boolean 
+    validation: Boolean,
+    reportedUsername: String,
+    reporterUsername: String
 })
 
 module.exports = mongoose.model('report', reportSchema, 'reports')

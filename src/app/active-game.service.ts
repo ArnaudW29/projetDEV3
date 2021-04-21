@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { environment } from './../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActiveGameService {
 
-  url: string = "https://devgames3.herokuapp.com/";
+  url: string = environment.apiUrl
   game_url!: string;
 
   private activeGame = new Subject<string>(); // Source

@@ -16,7 +16,7 @@ const gameid_4 = "607735a259476cd653c5f930";
 // ROUTES :
 
 // get game1 description
-router.get('/game_1', function(req, res){
+router.get('/morpion', function(req, res){
     Game.findById(gameid_1).exec(function(err, games){
         if(err){
             console.log("Error retrieving game 1");
@@ -27,7 +27,7 @@ router.get('/game_1', function(req, res){
 });
 
 // get game2 description
-router.get('/game_2', function(req, res){
+router.get('/421', function(req, res){
     Game.findById(gameid_2).exec(function(err, games){
         if(err){
             console.log("Error retrieving game 2");
@@ -38,7 +38,7 @@ router.get('/game_2', function(req, res){
 });
 
 // get game3 description
-router.get('/game_3', function(req, res){
+router.get('/puissance4', function(req, res){
     Game.findById(gameid_3).exec(function(err, games){
         if(err){
             console.log("Error retrieving game 3");
@@ -49,7 +49,7 @@ router.get('/game_3', function(req, res){
 });
 
 // get game4 description
-router.get('/game_4', function(req, res){
+router.get('/garticPhones', function(req, res){
     Game.findById(gameid_4).exec(function(err, games){
         if(err){
             console.log("Error retrieving game 4");

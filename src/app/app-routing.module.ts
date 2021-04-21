@@ -18,7 +18,7 @@ const routes: Routes = [{
   path: '',
   component: DashboardComponent,
 },{
-  path: 'game_1',
+  path: 'morpion',
   component: GameScreenComponent,
   children: [
     {
@@ -27,7 +27,7 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_2',
+  path: '421',
   component: GameScreenComponent,
   children: [
     {
@@ -36,7 +36,7 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_3',
+  path: 'puissance4',
   component: GameScreenComponent,
   children: [
     {
@@ -45,7 +45,7 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_4',
+  path: 'garticPhones',
   component: GameScreenComponent,
   children: [
     {

@@ -4,6 +4,8 @@ import { ActiveGameService } from './../../active-game.service';
 // default imports
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from './../../../environments/environment'
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   description: any;
   activeGame: string = '';
+  apiUrl: string = environment.apiUrl;
 
   /**
    * 

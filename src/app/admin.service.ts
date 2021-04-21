@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from './../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  url: string = 'https://devgames3.herokuapp.com/';
+  url: string  = environment.apiUrl
 
   /**
    *

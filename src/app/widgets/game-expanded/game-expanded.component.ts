@@ -3,6 +3,8 @@ import { ActiveGameService } from './../../active-game.service';
 
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
+import { environment } from './../../../environments/environment'
+
 @Component({
   selector: 'app-widget-game-expanded',
   templateUrl: './game-expanded.component.html',
@@ -32,7 +34,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    */
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
-    this.gameImageUrl = "http://localhost:3000/images/games/" + this.activeGame;
+    this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
   }
 
 }

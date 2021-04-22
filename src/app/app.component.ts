@@ -5,6 +5,9 @@ import { ActiveGameService } from './active-game.service';
 // default imports
 import { Component } from '@angular/core';
 
+// other imports
+import { HostListener } from "@angular/core";
+
 
 @Component({
   selector: 'app-root',
@@ -16,9 +19,12 @@ export class AppComponent {
   username: any;
   userIsAdmin: boolean = true;
 
+  screenWidth: any = window.innerWidth;
+
   selectedGame: string = '';
 
   sideBarOpen: boolean = false;
+  sideBarMode: string;
 
   /**
    * 
@@ -53,6 +59,17 @@ export class AppComponent {
    dropActiveGame() {
     this.activeGameService.changeActiveGame('');
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenWidth = window.innerWidth;
+    if ( this.screenWidth < 1280) {
+      this.sideBarMode = "over";
+    }
+    else if ( this.screenWidth >= 1280) {
+      this.sideBarMode = "side";
+    }
+}
 
 }
 

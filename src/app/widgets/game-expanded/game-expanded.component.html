@@ -1,11 +1,14 @@
-<div fxLayout="row">
-    <div fxFlex="60">
-      <img src="{{ gameImageUrl }}" alt="">
-    </div>
-    <div fxFlex="40" fxLayout="column">
-      <div fxFlex="60">{{ description }}</div>
-  
-      <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="{{ '/' + activeGame }}">play now!</button>
-    </div>
+
+<h2>{{ activeGametitle }}</h2>
+
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="20px" id="scrollTarget">
+  <div fxFlex="60">
+    <img src="{{ gameImageUrl }}" alt="">
   </div>
+  <div fxFlex="35" fxLayout="column">
+    <div fxFlex="60">{{ description }}</div>
+
+    <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="{{ '/' + activeGame }}">play now!</button>
+  </div>
+</div>
   

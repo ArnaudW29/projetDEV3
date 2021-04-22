@@ -1,39 +1,36 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
-    <mat-card fxFlex="25">
-        <app-widget-game-icon label="game 1" (changeActiveGame)="changeActiveGame('morpion')"
+<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="icon-container" fxLayoutAlign="space-between center">
+    <div fxFlex="0" fxFlex.lt-md="20"></div>  
+    <div fxFlex="50" fxFlex.lt-md="30" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+        <app-widget-game-icon fxFlex="50" label="game 1" (changeActiveGame)="changeActiveGame('morpion')"
         img_source="{{apiUrl}}images/game_icon/morpion"></app-widget-game-icon>
-    </mat-card>
-    <mat-card fxFlex="25">
-        <app-widget-game-icon label="game 2" (changeActiveGame)="changeActiveGame('421')"
+
+        <app-widget-game-icon fxFlex="50" label="game 2" (changeActiveGame)="changeActiveGame('421')"
         img_source="{{apiUrl}}images/game_icon/421"></app-widget-game-icon>
-    </mat-card>
-    <mat-card fxFlex="25">
-        <app-widget-game-icon label="game 3" (changeActiveGame)="changeActiveGame('puissance4')"
+    </div>
+
+    <div fxFlex="50" fxFlex.lt-md="30" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+        <app-widget-game-icon fxFlex="50" label="game 3" (changeActiveGame)="changeActiveGame('puissance4')"
         img_source="{{apiUrl}}images/game_icon/puissance4"></app-widget-game-icon>
-    </mat-card>
-    <mat-card fxFlex="25">
-        <app-widget-game-icon label="game 4" (changeActiveGame)="changeActiveGame('garticPhones')"
+
+        <app-widget-game-icon fxFlex="50" label="game 4" (changeActiveGame)="changeActiveGame('garticPhones')"
         img_source="{{apiUrl}}images/game_icon/garticPhones"></app-widget-game-icon>
-    </mat-card>
-  </div>
-  
-  <br>
-  
-  <mat-divider *ngIf="activeGame"></mat-divider>
-  
-  <br>
-  
-  <mat-card *ngIf="activeGame">
-    <app-widget-game-expanded [activeGame]="activeGame"></app-widget-game-expanded>
-  </mat-card>
-  
-  <br>
-  
-  <mat-divider *ngIf="activeGame"></mat-divider>
-  
-  <br>
-  
-  <mat-card *ngIf="activeGame">
-    <app-widget-game-chat-room [activeGame]="activeGame"></app-widget-game-chat-room>
-  </mat-card>
+    </div>
+    <div fxFlex="0" fxFlex.lt-md="20"></div>  
+</div>
+
+<br>
+
+<mat-divider *ngIf="activeGame"></mat-divider>
+
+<br>
+
+<app-widget-game-expanded *ngIf="activeGame" [activeGame]="activeGame"></app-widget-game-expanded>
+
+<br>
+
+<mat-divider *ngIf="activeGame"></mat-divider>
+
+<br>
+
+<app-widget-game-chat-room *ngIf="activeGame" [activeGame]="activeGame"></app-widget-game-chat-room>
   

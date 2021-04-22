@@ -14,6 +14,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
 
   @Input() activeGame!: string;
 
+  activeGametitle: string;
   description: any;
   gameImageUrl: String = "";
 
@@ -35,6 +36,31 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
     this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
+    let scrollTarget = document.getElementById("scrollTarget");
+    scrollTarget.scrollIntoView(true);
+
+    this.changeTitle()
+  }
+
+  changeTitle() {
+    switch(this.activeGame) {
+      case "morpion": {
+        this.activeGametitle = "Le morpion";
+        break
+      }
+      case "421": {
+        this.activeGametitle = "Le 421";
+        break
+      }
+      case "puissance4": {
+        this.activeGametitle = "Le Puissance 4";
+        break
+      }
+      case "garticPhones": {
+        this.activeGametitle = "Gartic Phones";
+        break
+      }
+    }
   }
 
 }

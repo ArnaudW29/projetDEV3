@@ -2,7 +2,7 @@
 
 <mat-drawer-container>
 
-  <mat-drawer mode="side" [opened]="sideBarOpen" position="end">
+  <mat-drawer mode="{{sideBarMode}}" [opened]="sideBarOpen" position="end">
       <app-sidebar [userIsAdmin]="userIsAdmin"></app-sidebar>
   </mat-drawer>
 

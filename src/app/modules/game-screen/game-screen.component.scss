@@ -5,13 +5,20 @@
   }
   
   mat-drawer {
-    width: 350px;
+    width: 300px;
   }
   
   mat-drawer-container {
     height: 100%;
+    padding: 0;
   }
   
   mat-drawer-content {
-    padding: 0 20px;
+    padding-right: 0px;
   }
+
+  @media only screen and (max-width: 350px) {
+    mat-drawer {
+      width: 250px;
+    }
+}

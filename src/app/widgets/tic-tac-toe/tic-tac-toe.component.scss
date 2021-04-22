@@ -12,3 +12,39 @@ app-square {
 #gameHeader {
     padding-top: 20px;
 }
+
+@media only screen and (max-width: 700px) {
+    main {
+        grid-template-columns: 150px 150px 150px;
+    }
+    app-square {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    main {
+        grid-template-columns: 125px 125px 125px;
+    }
+    app-square {
+        height: 125px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    main {
+        grid-template-columns: 100px 100px 100px;
+    }
+    app-square {
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    main {
+        grid-template-columns: 75px 75px 75px;
+    }
+    app-square {
+        height: 75px;
+    }
+}

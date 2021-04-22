@@ -10,7 +10,7 @@ import { SidebarService } from 'src/app/sidebar.service';
 export class GameScreenComponent implements OnInit {
 
   ingameSideBarOpen: boolean;
-  ingameSideBarMode: string = "side"
+  ingameSideBarMode: string;
   screenWidth: any = window.innerWidth;
 
   constructor(private sideBarService: SidebarService) { }
@@ -24,7 +24,7 @@ export class GameScreenComponent implements OnInit {
   dynamicWindowResize(){
     if ( this.screenWidth < 1280) {
       this.ingameSideBarOpen = false;
-      this.ingameSideBarMode = "over";
+      this.ingameSideBarMode = "push";
     }
     else if ( this.screenWidth >= 1280) {
       this.ingameSideBarOpen = true;

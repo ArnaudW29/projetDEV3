@@ -7,11 +7,6 @@
         <div fxFlex fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
               <li>
-                <button mat-button routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
-                  Register
-                </button>
-              </li>
-              <li>
                 <button mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
                   <mat-icon>help_outline</mat-icon>
                 </button>
@@ -29,7 +24,11 @@
                   </button>
 
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">profile</button>
+                    <button mat-menu-item routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
+                      Register
+                    </button>
+
+                    <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">Profile</button>
 
                     <button mat-menu-item>
                       <mat-icon>exit_to_app</mat-icon>

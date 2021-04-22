@@ -58,7 +58,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
       }
       case "garticPhones": {
         this.activeGametitle = "Gartic Phones";
-        break
+        
       }
     }
   }

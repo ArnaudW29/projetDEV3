@@ -1,13 +1,14 @@
 // service imports
 import { UserService } from './user.service';
 import { ActiveGameService } from './active-game.service';
+import { SidebarService } from './sidebar.service';
 
 // default imports
 import { Component } from '@angular/core';
 
 // other imports
 import { HostListener } from "@angular/core";
-import { SidebarService } from './sidebar.service';
+
 
 
 @Component({
@@ -55,6 +56,7 @@ export class AppComponent {
     this.username = this.userService.getUsername();
     this.sideBarService.changeSideBarOpen(false);
     this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
+    this.dynamicWindowResize();
   }
 
   /**
@@ -71,17 +73,20 @@ export class AppComponent {
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event?) {
-    this.screenWidth = window.innerWidth;
+  dynamicWindowResize(){
     if ( this.screenWidth < 1280) {
       this.sideBarMode = "over";
     }
     else if ( this.screenWidth >= 1280) {
       this.sideBarMode = "side";
     }
-    
-}
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenWidth = window.innerWidth;
+    this.dynamicWindowResize();    
+  }
 
 }
 

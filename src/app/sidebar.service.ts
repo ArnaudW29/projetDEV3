@@ -10,6 +10,9 @@ export class SidebarService {
   private sideBarOpen = new Subject<boolean>(); // Source
   sideBarOpen$ = this.sideBarOpen.asObservable(); // Stream
 
+  private ingameSideBarOpen = new Subject<boolean>(); // Source
+  ingameSideBarOpen$ = this.ingameSideBarOpen.asObservable(); // Stream
+
 
   constructor() { }
 
@@ -24,6 +27,19 @@ export class SidebarService {
 
   changeSideBarOpen(open: boolean) {
     this.sideBarOpen.next(open);
+  }
+
+  /**
+   *
+   * @returns la valeur de la variable ingameSideBarOpen
+   *
+   */
+   getIngameSideBarOpen() {
+    return this.ingameSideBarOpen;
+  }
+
+  changeIngameSidebarOpen(open: boolean) {
+    this.ingameSideBarOpen.next(open)
   }
 
 }

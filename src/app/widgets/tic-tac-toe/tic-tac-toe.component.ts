@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SidebarService } from 'src/app/sidebar.service';
 
 @Component({
   selector: 'app-widget-tic-tac-toe',
@@ -12,10 +13,13 @@ export class TicTacToeComponent implements OnInit {
 
   isDisabled: boolean = false;
 
-  constructor() {}
+  ingameSideBarOpen: boolean;
+
+  constructor(private sideBarService: SidebarService) {}
 
   ngOnInit() {
     this.newGame();
+    this.sideBarService.getIngameSideBarOpen().subscribe(ingameSideBarOpen => this.ingameSideBarOpen = ingameSideBarOpen);
   }
 
   newGame() {
@@ -63,5 +67,9 @@ export class TicTacToeComponent implements OnInit {
       }
     }
     return null;
+  }
+
+  toggleIngameSideBar() {
+    this.sideBarService.changeIngameSidebarOpen(!this.ingameSideBarOpen);
   }
 }

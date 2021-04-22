@@ -24,7 +24,7 @@
 
 <br>
 
-<app-widget-game-expanded *ngIf="activeGame" [activeGame]="activeGame"></app-widget-game-expanded>
+<app-widget-game-expanded *ngIf="activeGame" [activeGame]="activeGame" (closeSideBarEvent)="closeSideBar()"></app-widget-game-expanded>
 
 <br>
 

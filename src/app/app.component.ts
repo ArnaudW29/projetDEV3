@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 
 // other imports
 import { HostListener } from "@angular/core";
+import { SidebarService } from './sidebar.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class AppComponent {
 
   selectedGame: string = '';
 
-  sideBarOpen: boolean = false;
+  sideBarOpen: boolean;
   sideBarMode: string;
 
   /**
@@ -35,18 +36,25 @@ export class AppComponent {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
+  closeSideBar() {
+    console.log('test');
+    this.sideBarOpen = false;
+  }
+
   /**
    * 
    * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
    * 
    */
-  constructor(private userService: UserService, private activeGameService: ActiveGameService) { }
+  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService) { }
 
   /**
    * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
    */
   ngOnInit() {
     this.username = this.userService.getUsername();
+    this.sideBarService.changeSideBarOpen(false);
+    this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
   }
 
   /**
@@ -58,6 +66,9 @@ export class AppComponent {
    */
    dropActiveGame() {
     this.activeGameService.changeActiveGame('');
+    if (this.sideBarOpen) {
+      this.sideBarOpen = !this.sideBarOpen;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
@@ -69,6 +80,7 @@ export class AppComponent {
     else if ( this.screenWidth >= 1280) {
       this.sideBarMode = "side";
     }
+    
 }
 
 }

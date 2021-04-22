@@ -13,6 +13,8 @@ export class LeaderboardComponent implements OnInit, OnChanges {
 
   @Input() selectedGame: string = '';
 
+  selectedGameTitle: string;
+
   displayedColumns: string[] = ['pseudo', 'score'];
   leaderboard: any;
 
@@ -33,5 +35,27 @@ export class LeaderboardComponent implements OnInit, OnChanges {
    */
   ngOnChanges() {
     this.activeGameService.getLeaderboard().subscribe( leaderboard => this.leaderboard = new MatTableDataSource<Leaderboard>(leaderboard));
+    this.changeLeaderboardTitle();
+  }
+
+  changeLeaderboardTitle() {
+    switch(this.selectedGame) {
+      case "morpion": {
+        this.selectedGameTitle = "Morpion";
+        break
+      }
+      case "421": {
+        this.selectedGameTitle = "421";
+        break
+      }
+      case "puissance4": {
+        this.selectedGameTitle = "Puissance 4";
+        break
+      }
+      case "garticPhones": {
+        this.selectedGameTitle = "Gartic Phones";
+        break
+      }
+    }
   }
 }

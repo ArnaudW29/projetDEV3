@@ -1,12 +1,8 @@
 <div class="mat-elevation-z8">
 
-    <h2 matSubheader>{{ selectedGame }} leaderboard</h2>
+    <h2 matSubheader>{{ selectedGameTitle }} : leaderboard</h2>
   
     <table mat-table [dataSource]="leaderboard">
-  
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-  
       <!-- Pseudo Column -->
       <ng-container matColumnDef="pseudo">
         <th mat-header-cell *matHeaderCellDef> Pseudo </th>

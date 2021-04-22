@@ -8,7 +8,8 @@
   <div fxFlex="35" fxLayout="column">
     <div fxFlex="60">{{ description }}</div>
 
-    <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="{{ '/' + activeGame }}">play now!</button>
+    <button mat-stroked-button color="accent" routerLinkActive="active" 
+      routerLink="{{ '/' + activeGame }}" (click)="closeSideBar()">play now!</button>
   </div>
 </div>
   

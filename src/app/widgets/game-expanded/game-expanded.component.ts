@@ -1,7 +1,7 @@
 // import services
 import { ActiveGameService } from './../../active-game.service';
 
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 
 import { environment } from './../../../environments/environment'
 
@@ -13,6 +13,8 @@ import { environment } from './../../../environments/environment'
 export class GameExpandedComponent implements OnInit, OnChanges {
 
   @Input() activeGame!: string;
+
+  @Output() closeSideBarEvent: EventEmitter<any> = new EventEmitter();
 
   activeGametitle: string;
   description: any;
@@ -37,7 +39,9 @@ export class GameExpandedComponent implements OnInit, OnChanges {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
     this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
     let scrollTarget = document.getElementById("scrollTarget");
-    scrollTarget.scrollIntoView(true);
+    setTimeout(function(){
+      scrollTarget.scrollIntoView({behavior: "smooth"});
+  }, 100);
 
     this.changeTitle()
   }
@@ -61,6 +65,10 @@ export class GameExpandedComponent implements OnInit, OnChanges {
         
       }
     }
+  }
+
+  closeSideBar() {
+    this.closeSideBarEvent.emit();
   }
 
 }

@@ -2,9 +2,10 @@
 import { ActiveGameService } from './../../active-game.service';
 
 // default imports
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { environment } from './../../../environments/environment'
+import { SidebarService } from 'src/app/sidebar.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnInit {
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans changeActiveGame()
    * 
    */
-  constructor(private activeGameService: ActiveGameService) {
+  constructor(private activeGameService: ActiveGameService, private sideBarService: SidebarService) {
     this.activeGameService.activeGame$.subscribe(activeGame => {this.activeGame = activeGame;});
   }
 
@@ -38,6 +39,10 @@ export class DashboardComponent implements OnInit {
   changeActiveGame(game: string) {
     this.activeGameService.changeActiveGame(game);
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
+  }
+
+  closeSideBar() {
+    this.sideBarService.changeSideBarOpen(false);
   }
 
 }

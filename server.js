@@ -41,12 +41,7 @@ app.get('*', (req, res) => {
 });
 
 //post
-app.post('/sendReg', require('./server/routes/sendReg'){
-  db.collection('users').insertOne(data, function(err,collection){
-    if (err) throw err;
-    console.log("Good")
-  });
-});
+app.post('/sendReg', require('./server/routes/sendReg'));
 
 
 

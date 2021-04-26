@@ -21,15 +21,15 @@ REM set up Angular Material : use Indigo/Pink, default settings
 ng add @angular/material 
 REM set up Angular Flex-Layout
 npm install --save @angular/flex-layout @angular/cdk
-REM install express, path, mongoose, cors
-npm i --save express path mongoose cors
+REM install express, path, mongoose, cors, body-parser
+npm i --save express path mongoose cors body-parser
 ```
 
 ## run local app
 
 ```
 REM build static angular files
-ng build --prod
+ng build
 REM run express server  
 node server
 ```

@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 let cors = require('cors');
+const bodyParser = require('body-parser');
 
 // express app creation
 const app = express();
@@ -23,6 +24,8 @@ mongoose.connect(db, function(err){
 });
 
 // link to angular static files
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // routes
@@ -33,9 +36,16 @@ app.use('/leaderboard', require('./server/routes/leaderboard'));
 app.use('/admin', require('./server/routes/admin'));
 app.use('/users', require('./server/routes/users'));
 app.use('/images', require('./server/routes/images'));
-
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
+//post
+app.post('/sendReg', require('./server/routes/sendReg'){
+  db.collection('users').insertOne(data, function(err,collection){
+    if (err) throw err;
+    console.log("Good")
+  });
 });
 
 

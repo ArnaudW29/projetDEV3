@@ -33,5 +33,5 @@ export class RegisterComponent implements OnInit {
   }
   onRegisterSubmit(){
     console.log(this.user.username + ' ' + this.user.password + ' ' + this.user.email);
-  }
+}
 }

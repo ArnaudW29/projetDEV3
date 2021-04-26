@@ -9,7 +9,7 @@ const router = express.Router();
 
 // ROUTES :
 
-// get user from user id
+// [GET] user from user id
 router.get('/:id', function(req, res){
     User.findById(req.params.id).exec(function(err, user){
         if(err){
@@ -20,7 +20,7 @@ router.get('/:id', function(req, res){
     })
 });
 
-// get username from user id
+// [GET] username from user id
 router.get('/username/:id', function(req, res){
     User.findById(req.params.id).exec(function(err, user){
         if(err){
@@ -31,7 +31,11 @@ router.get('/username/:id', function(req, res){
     })
 });
 
-
-
+// [GET] api route /users
+router.get('', function(req, res){
+  User.find({},function(err, foundUser){
+    res.json(foundUser)
+  })
+});
 
 module.exports = router;

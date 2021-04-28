@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from '../../models/register.models'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
   user: RegisterModel = new RegisterModel();
   registerForm: FormGroup;
   hide = true;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(){
     // verification des champs du form
@@ -32,6 +33,11 @@ export class RegisterComponent implements OnInit {
     });
   }
   onRegisterSubmit(){
-    console.log(this.user.username + ' ' + this.user.password + ' ' + this.user.email);
-}
+    if(this.registerForm.valid){
+      this.http.post('/sendReg', this.registerForm.value)
+        .subscribe((response)=> {
+          console.log('response',response);
+        })
+    }
+  }
 }

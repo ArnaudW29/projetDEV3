@@ -1,6 +1,8 @@
 // express & path & cors import
 const express = require('express');
 const path = require('path');
+const SendReg = require('./server/models/sendReg');
+const router = express.Router();
 let cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -15,9 +17,9 @@ const port = process.env.PORT || 3000
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-const db = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
+const url = "mongodb+srv://TheGregouze:pastis51@devgames.wqtyv.mongodb.net/MainDB?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
-mongoose.connect(db, function(err){
+mongoose.connect(url, function(err){
     if(err){
         console.error('Error : ' + err);
     }
@@ -41,7 +43,31 @@ app.get('*', (req, res) => {
 });
 
 //post
+<<<<<<< Updated upstream
 app.post('/sendReg', require('./server/routes/sendReg'));
+=======
+app.post('/sendReg', function(req ,res){
+  console.log('post data');
+  var newUser = new SendReg();
+  newUser.username = req.body.username;
+  newUser.email = req.body.email;
+  newUser.password = req.body.password;
+  newUser.admin = false;
+  newUser.warning = 0;
+  newUser.blacklist = false;
+  newUser.scoreGame1 = 0;
+  newUser.scoreGame2 = 0;
+  newUser.scoreGame3 = 0;
+  newUser.scoreGame4 = 0;
+  newUser.save(function(err, insertedUser){
+    if(err){
+      console.log('Error saving user');
+    } else{
+      res.json(insertedUser)
+    }
+  })
+});
+>>>>>>> Stashed changes
 
 
 

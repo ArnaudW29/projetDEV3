@@ -43,9 +43,6 @@ app.get('*', (req, res) => {
 });
 
 //post
-<<<<<<< Updated upstream
-app.post('/sendReg', require('./server/routes/sendReg'));
-=======
 app.post('/sendReg', function(req ,res){
   console.log('post data');
   var newUser = new SendReg();
@@ -67,7 +64,6 @@ app.post('/sendReg', function(req ,res){
     }
   })
 });
->>>>>>> Stashed changes
 
 
 

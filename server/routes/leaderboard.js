@@ -21,7 +21,7 @@ router.get('/morpion', function(req, res){
         if(err){
             console.log("Error retrieving leaderboard 1");
         }else {
-            res.json(games.leaderboard);
+            res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
     })
 });
@@ -32,7 +32,7 @@ router.get('/421', function(req, res){
         if(err){
             console.log("Error retrieving leaderboard 2");
         }else {
-            res.json(games.leaderboard);
+            res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
     })
 });
@@ -43,7 +43,7 @@ router.get('/puissance4', function(req, res){
         if(err){
             console.log("Error retrieving leaderboard 3");
         }else {
-            res.json(games.leaderboard);
+            res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
     })
 });
@@ -54,7 +54,7 @@ router.get('/garticPhones', function(req, res){
         if(err){
             console.log("Error retrieving leaderboard 4");
         }else {
-            res.json(games.leaderboard);
+            res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
     })
 });

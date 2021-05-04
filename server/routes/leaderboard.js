@@ -19,7 +19,7 @@ const gameid_4 = "607735a259476cd653c5f930";
 router.get('/morpion', function(req, res){
     Game.findById(gameid_1).exec(function(err, games){
         if(err){
-            console.log("Error retrieving leaderboard 1");
+            res.sendStatus(404);
         }else {
             res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
@@ -30,7 +30,7 @@ router.get('/morpion', function(req, res){
 router.get('/421', function(req, res){
     Game.findById(gameid_2).exec(function(err, games){
         if(err){
-            console.log("Error retrieving leaderboard 2");
+            res.sendStatus(404);
         }else {
             res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
@@ -41,7 +41,7 @@ router.get('/421', function(req, res){
 router.get('/puissance4', function(req, res){
     Game.findById(gameid_3).exec(function(err, games){
         if(err){
-            console.log("Error retrieving leaderboard 3");
+            res.sendStatus(404);
         }else {
             res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }
@@ -52,7 +52,7 @@ router.get('/puissance4', function(req, res){
 router.get('/garticPhones', function(req, res){
     Game.findById(gameid_4).exec(function(err, games){
         if(err){
-            console.log("Error retrieving leaderboard 4");
+            res.sendStatus(404);
         }else {
             res.json(games.leaderboard.sort(function(a, b){return b.score-a.score}));
         }

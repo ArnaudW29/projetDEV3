@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/:id', function(req, res){
     User.findById(req.params.id).exec(function(err, user){
         if(err){
-            console.log("Error retrieving username");
+            res.sendStatus(404);
         }else {
             res.json(user);
         }
@@ -24,7 +24,7 @@ router.get('/:id', function(req, res){
 router.get('/username/:id', function(req, res){
     User.findById(req.params.id).exec(function(err, user){
         if(err){
-            console.log("Error retrieving username");
+            res.sendStatus(404);
         }else {
             res.json(user.username);
         }

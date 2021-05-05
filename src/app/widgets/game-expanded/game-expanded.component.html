@@ -6,12 +6,18 @@
     <img src="{{ gameImageUrl }}" alt="">
   </div>
   <div fxFlex="35" fxLayout="column">
-    <div fxFlex="60">{{ description }}</div>
+    <div fxFlex="60">
+      {{ description }}
+    </div>
+
+    <br>
+
+    <div>{{connectedUser}}</div>
 
     <br>
 
     <button mat-stroked-button color="accent" routerLinkActive="active" 
-      routerLink="{{ '/' + activeGame }}" (click)="closeSideBar()">play now!</button>
+      routerLink="{{ buttonRouterLink }}" (click)="closeSideBar()">{{ buttonText }}</button>
   </div>
 </div>
   

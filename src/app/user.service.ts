@@ -35,7 +35,7 @@ export class UserService {
    *
    */
   getUsername() {
-    return this.username;
+    return this.currentUsername;
   }
 
   setUsername(username) {

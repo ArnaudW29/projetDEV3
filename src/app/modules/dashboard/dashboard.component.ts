@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { environment } from './../../../environments/environment'
 import { SidebarService } from 'src/app/sidebar.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,13 +18,14 @@ export class DashboardComponent implements OnInit {
   description: any;
   activeGame: string = '';
   apiUrl: string = environment.apiUrl;
+  username: any;
 
   /**
    * 
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans changeActiveGame()
    * 
    */
-  constructor(private activeGameService: ActiveGameService, private sideBarService: SidebarService) {
+  constructor(private activeGameService: ActiveGameService, private sideBarService: SidebarService, private userService: UserService) {
     this.activeGameService.activeGame$.subscribe(activeGame => {this.activeGame = activeGame;});
   }
 

@@ -4,6 +4,7 @@ import { ActiveGameService } from './../../active-game.service';
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 
 import { environment } from './../../../environments/environment'
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-widget-game-expanded',
@@ -13,6 +14,7 @@ import { environment } from './../../../environments/environment'
 export class GameExpandedComponent implements OnInit, OnChanges {
 
   @Input() activeGame!: string;
+  connectedUser!: any;
 
   @Output() closeSideBarEvent: EventEmitter<any> = new EventEmitter();
 
@@ -20,14 +22,18 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   description: any;
   gameImageUrl: String = "";
 
+  buttonText: string = "Connecte toi pour jouer !"
+  buttonRouterLink: string = '/login';
+
   /**
    * 
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
    * 
    */
-  constructor(private activeGameService: ActiveGameService) { }
+  constructor(private activeGameService: ActiveGameService, private userService: UserService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   /**
    * 
@@ -38,6 +44,11 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
     this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
+    console.log(this.connectedUser);
+    if(this.userService.getUsername()){
+      this.buttonText = "play now!";
+      this.buttonRouterLink = '/' + this.activeGame;
+    }
     let scrollTarget = document.getElementById("scrollTarget");
     setTimeout(function(){
       scrollTarget.scrollIntoView(false);

@@ -40,7 +40,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
     this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
     let scrollTarget = document.getElementById("scrollTarget");
     setTimeout(function(){
-      scrollTarget.scrollIntoView({behavior: "smooth"});
+      scrollTarget.scrollIntoView(false);
   }, 100);
 
     this.changeTitle()

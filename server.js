@@ -45,7 +45,6 @@ app.get('*', (req, res) => {
 
 //post
 app.post('/sendReg', function(req ,res){
-  console.log('post data');
   var newUser = new SendReg();
   newUser.username = req.body.username;
   newUser.email = req.body.email;
@@ -59,7 +58,7 @@ app.post('/sendReg', function(req ,res){
   newUser.scoreGame4 = 0;
   newUser.save(function(err, insertedUser){
     if(err){
-      console.log('Error saving user');
+      res.sendStatus(404);
     } else{
       res.json(insertedUser)
     }
@@ -78,7 +77,6 @@ app.post('/login/userpsw', function(req, res){
   User.find({ username:usrname, password:psw}).exec(function(err, user){
     if(err){
         res.sendStatus(404);
-        console.log(err);
     }
     if(user.length != 0){
         res.json(true);

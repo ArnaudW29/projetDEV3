@@ -38,6 +38,7 @@ app.use('/leaderboard', require('./server/routes/leaderboard'));
 app.use('/admin', require('./server/routes/admin'));
 app.use('/users', require('./server/routes/users'));
 app.use('/images', require('./server/routes/images'));
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
@@ -66,6 +67,27 @@ app.post('/sendReg', function(req ,res){
 });
 
 
+
+// local imports
+const User = require('./server/models/user');
+
+
+app.post('/login/userpsw', function(req, res){
+  let usrname = req.body.username;
+  let psw = req.body.password;
+  User.find({ username:usrname, password:psw}).exec(function(err, user){
+    if(err){
+        res.sendStatus(404);
+        console.log(err);
+    }
+    if(user.length != 0){
+        res.json(true);
+    }
+    else{
+      res.json(false)
+    }
+  })
+});
 
 
 app.listen(port, function(){

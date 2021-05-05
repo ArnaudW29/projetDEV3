@@ -13,6 +13,8 @@ import { QuatreCentVingtEtUnComponent } from './widgets/quatre-cent-vingt-et-un/
 import { PuissanceQuatreComponent } from './widgets/puissance-quatre/puissance-quatre.component';
 import { GarticPhonesComponent } from './widgets/gartic-phones/gartic-phones.component';
 import { RegisterComponent } from './modules/register/register.component';
+import { LoginComponent } from './modules/login/login.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -65,6 +67,9 @@ const routes: Routes = [{
 },{
   path: 'register',
   component: RegisterComponent
+},{
+  path: 'login',
+  component: LoginComponent
 }
 ];
 

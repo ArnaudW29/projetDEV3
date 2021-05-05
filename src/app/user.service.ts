@@ -15,6 +15,8 @@ export class UserService {
   private username = new Subject<string>(); // Source
   username$ = this.username.asObservable(); // Stream
 
+  currentUsername: string = '';
+
   /**
    *
    * @param httpClient - importe du module @angular/comon/http ; declare ici afin de pouvoir etre utilise dans UserService
@@ -32,7 +34,16 @@ export class UserService {
   }
 
   setUsername(username) {
+    this.currentUsername = username
     this.username.next(username);
+  }
+
+  getEmail() {
+    return this.httpClient.get(this.url + 'users/email/' + this.currentUsername);
+  }
+
+  getAdminStatus() {
+    return this.httpClient.get(this.url + 'users/isAdmin/' + this.currentUsername);
   }
 
   /**

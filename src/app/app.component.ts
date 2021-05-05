@@ -19,7 +19,7 @@ import { HostListener } from "@angular/core";
 export class AppComponent {
 
   username: any;
-  userIsAdmin: boolean = true;
+  userIsAdmin: any;
 
   screenWidth: any = window.innerWidth;
 
@@ -56,6 +56,7 @@ export class AppComponent {
     this.username = this.userService.getUsername();
     this.sideBarService.changeSideBarOpen(false);
     this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
+    this.userService.getAdminStatus().subscribe(status => this.userIsAdmin = status)
     this.dynamicWindowResize();
   }
 

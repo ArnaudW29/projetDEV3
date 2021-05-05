@@ -1,6 +1,8 @@
 import { ActiveGameService } from './../../active-game.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,6 +15,9 @@ export class SidebarComponent implements OnInit {
 
   selectedGame: string = '';
   username: string = '';
+  userEmail: any;
+
+  url: string  = environment.apiUrl
 
    /**
    * 
@@ -21,9 +26,15 @@ export class SidebarComponent implements OnInit {
    * 
    * @param activeGameService - active-game.service
    */
-  constructor(private activeGameService: ActiveGameService, private userService: UserService) {
+  constructor(private activeGameService: ActiveGameService, private userService: UserService, private httpClient: HttpClient) {
     this.activeGameService.activeGame$.subscribe(activeGame => {this.selectedGame = activeGame;});
-    this.userService.username$.subscribe(username => {this.username = username;});
+    this.userService.username$.subscribe(username => {
+      this.username = username;
+      this.userService.getEmail().subscribe(email => {
+        this.userEmail = email;
+      });
+    });
+    
   }
 
   ngOnInit(): void { }

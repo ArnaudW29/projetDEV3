@@ -31,6 +31,30 @@ router.get('/username/:id', function(req, res){
     })
 });
 
+// [GET] email from username
+router.get('/email/:usr', function(req, res){
+    // User.find({ username:usrname, password:psw}).exec(function(err, user){
+    User.find({ username: req.params.usr }, function(err, users){
+        if(err){
+            res.sendStatus(404);
+        }else {
+            res.json(users[0].email);
+        }
+    })
+});
+
+// [GET] admin status from username
+router.get('/isAdmin/:usr', function(req, res){
+    // User.find({ username:usrname, password:psw}).exec(function(err, user){
+    User.find({ username: req.params.usr }, function(err, users){
+        if(err){
+            res.sendStatus(404);
+        }else {
+            res.json(users[0].admin);
+        }
+    })
+});
+
 // [GET] api route /users
 router.get('', function(req, res){
   User.find({},function(err, foundUser){

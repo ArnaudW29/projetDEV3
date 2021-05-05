@@ -15,7 +15,6 @@ export class SidebarComponent implements OnInit {
 
   selectedGame: string = '';
   username: string = '';
-  userEmail: any;
 
   url: string  = environment.apiUrl
 
@@ -30,9 +29,6 @@ export class SidebarComponent implements OnInit {
     this.activeGameService.activeGame$.subscribe(activeGame => {this.selectedGame = activeGame;});
     this.userService.username$.subscribe(username => {
       this.username = username;
-      this.userService.getEmail().subscribe(email => {
-        this.userEmail = email;
-      });
     });
     
   }

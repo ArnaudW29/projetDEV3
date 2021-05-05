@@ -47,7 +47,9 @@ export class AppComponent {
    * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
    * 
    */
-  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService) { }
+  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService) {
+    this.userService.userIsAdmin$.subscribe(status => {this.userIsAdmin = (status == 'true');});
+  }
 
   /**
    * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
@@ -56,7 +58,6 @@ export class AppComponent {
     this.username = this.userService.getUsername();
     this.sideBarService.changeSideBarOpen(false);
     this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
-    this.userService.getAdminStatus().subscribe(status => this.userIsAdmin = status)
     this.dynamicWindowResize();
   }
 
@@ -72,6 +73,10 @@ export class AppComponent {
     if (this.sideBarOpen) {
       this.sideBarOpen = !this.sideBarOpen;
     }
+  }
+
+  signOut() {
+    
   }
 
   dynamicWindowResize(){

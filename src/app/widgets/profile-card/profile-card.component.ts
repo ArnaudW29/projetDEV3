@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-widget-profile-card',
@@ -8,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProfileCardComponent implements OnInit {
 
   @Input() username!: string;
-  @Input() userEmail!: string;
+  userEmail!: any;
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.userService.getEmail().subscribe(email => {
+      this.userEmail = email;
+    });
+  }
 
   ngOnInit(): void { }
 

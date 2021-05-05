@@ -15,6 +15,9 @@ export class UserService {
   private username = new Subject<string>(); // Source
   username$ = this.username.asObservable(); // Stream
 
+  private userIsAdmin = new Subject<string>(); // Source
+  userIsAdmin$ = this.userIsAdmin.asObservable(); // Stream
+
   currentUsername: string = '';
 
   /**
@@ -22,7 +25,9 @@ export class UserService {
    * @param httpClient - importe du module @angular/comon/http ; declare ici afin de pouvoir etre utilise dans UserService
    *
    */
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.userIsAdmin.next('false');
+  }
 
   /**
    *
@@ -34,7 +39,13 @@ export class UserService {
   }
 
   setUsername(username) {
-    this.currentUsername = username
+    this.currentUsername = username;
+    if(username) {
+      this.getAdminStatus();
+    }
+    else {
+      this.setAdminStatus('false');
+    }
     this.username.next(username);
   }
 
@@ -43,7 +54,12 @@ export class UserService {
   }
 
   getAdminStatus() {
-    return this.httpClient.get(this.url + 'users/isAdmin/' + this.currentUsername);
+    return this.httpClient.get(this.url + 'users/isAdmin/' + this.currentUsername).subscribe(status =>
+      this.userIsAdmin.next(JSON.stringify(status)));
+  }
+
+  setAdminStatus(status) {
+    this.userIsAdmin.next(status);
   }
 
   /**

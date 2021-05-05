@@ -8,10 +8,11 @@ import { UserService } from 'src/app/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() userIsAdmin!: boolean;
+  @Input() userIsAdmin!: string;
 
   @Output() toggleSideBarEvent: EventEmitter<any> = new EventEmitter();
   @Output() dropActiveGameEvent: EventEmitter<any> = new EventEmitter();
+  @Output() signOutEvent: EventEmitter<any> = new EventEmitter();
 
   username: string = '';
 
@@ -42,6 +43,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signOut() {
+    this.signOutEvent.emit();
     this.userService.setUsername('');
     this.dropActiveGame();
   }

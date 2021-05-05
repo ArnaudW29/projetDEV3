@@ -4,6 +4,7 @@ import { LoginModel } from 'src/app/models/login.models';
 import { HttpClient } from '@angular/common/http'
 import { environment } from './../../../environments/environment'
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 	loginForm: FormGroup;
 	apiUrl: string = environment.apiUrl;
 
-	constructor(private formBuilder: FormBuilder, private http: HttpClient, private _router: Router) { }
+	constructor(private formBuilder: FormBuilder, private http: HttpClient, private _router: Router, private userService: UserService) { }
 
 	ngOnInit(): void {
 		// verification des champs du form
@@ -49,12 +50,11 @@ export class LoginComponent implements OnInit {
 	};
 
 	onLoginSubmit(){
-		let current_usrname;
-
 		this.http.post(this.apiUrl + 'login/userpsw', this.loginForm.value)
 			.subscribe((response)=>{
 				if(response){
-					current_usrname = document.getElementById('aled')[0].value;
+					let current_usrname = document.getElementById('aled')[0].value;
+					this.userService.setUsername(current_usrname);
 					this._router.navigate([""]);
 				}
 				else{

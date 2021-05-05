@@ -1,5 +1,6 @@
 import { ActiveGameService } from './../../active-game.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +12,7 @@ export class SidebarComponent implements OnInit {
   @Input() userIsAdmin: boolean = false;
 
   selectedGame: string = '';
+  username: string = '';
 
    /**
    * 
@@ -19,8 +21,9 @@ export class SidebarComponent implements OnInit {
    * 
    * @param activeGameService - active-game.service
    */
-  constructor(private activeGameService: ActiveGameService) {
+  constructor(private activeGameService: ActiveGameService, private userService: UserService) {
     this.activeGameService.activeGame$.subscribe(activeGame => {this.selectedGame = activeGame;});
+    this.userService.username$.subscribe(username => {this.username = username;});
   }
 
   ngOnInit(): void { }

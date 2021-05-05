@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,11 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSideBarEvent: EventEmitter<any> = new EventEmitter();
   @Output() dropActiveGameEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  username: string = '';
+
+  constructor(private userService: UserService) {
+    this.userService.username$.subscribe(username => {this.username = username;});
+  }
 
   ngOnInit(): void { }
 
@@ -34,6 +39,11 @@ export class HeaderComponent implements OnInit {
    */
    dropActiveGame() {
     this.dropActiveGameEvent.emit();
+  }
+
+  signOut() {
+    this.userService.setUsername('');
+    this.dropActiveGame();
   }
 
 }

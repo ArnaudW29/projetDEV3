@@ -1,11 +1,6 @@
 <mat-nav-list fxLayout="column">
-    <div class="profile-card">
-      <div class="header">
-        <h2>Current User</h2>
-        <h4>c.user@students.ephec.be</h4>
-      </div>
-      <img src="https://www.kindpng.com/picc/m/171-1712282_profile-icon-png-profile-icon-vector-png-transparent.png" alt="current user">
-    </div>
+    
+    <app-widget-profile-card *ngIf="username" [username]="username"></app-widget-profile-card>
   
     <mat-divider></mat-divider>
   

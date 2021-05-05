@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../environments/environment'
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class UserService {
 
   url: string  = environment.apiUrl
 
-  username: string = 'currentUser';
+  private username = new Subject<string>(); // Source
+  username$ = this.username.asObservable(); // Stream
 
   /**
    *
@@ -27,6 +29,10 @@ export class UserService {
    */
   getUsername() {
     return this.username;
+  }
+
+  setUsername(username) {
+    this.username.next(username);
   }
 
   /**

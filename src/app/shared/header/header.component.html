@@ -24,16 +24,16 @@
                   </button>
 
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
+                    <button *ngIf="!username" mat-menu-item routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
                       Register
                     </button>
-                    <button mat-menu-item routerLinkActive="active" routerLink="/login" (click)="dropActiveGame()">
+                    <button *ngIf="!username" mat-menu-item routerLinkActive="active" routerLink="/login" (click)="dropActiveGame()">
                       Login
                     </button>
 
-                    <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">Profile</button>
+                    <button *ngIf="username" mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">Profile</button>
 
-                    <button mat-menu-item>
+                    <button *ngIf="username" mat-menu-item routerLinkActive="active" routerLink="" (click)="signOut()">
                       <mat-icon>exit_to_app</mat-icon>
                       Sign out
                     </button>

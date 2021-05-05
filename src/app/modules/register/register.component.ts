@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from '../../models/register.models'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../../environments/environment';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +13,10 @@ export class RegisterComponent implements OnInit {
   user: RegisterModel = new RegisterModel();
   registerForm: FormGroup;
   hide = true;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+
+  apiUrl: string = environment.apiUrl;
+
+  constructor(private formBuilder: FormBuilder, private _router: Router, private http: HttpClient) { }
 
   ngOnInit(){
     // verification des champs du form
@@ -34,10 +38,11 @@ export class RegisterComponent implements OnInit {
   }
   onRegisterSubmit(){
     if(this.registerForm.valid){
-      this.http.post('/sendReg', this.registerForm.value)
+      this.http.post(this.apiUrl + 'sendReg', this.registerForm.value)
         .subscribe((response)=> {
           console.log('response',response);
         })
+        this._router.navigate(["/login"]);
     }
   }
 }

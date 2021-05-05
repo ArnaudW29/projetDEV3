@@ -3,11 +3,26 @@
     <mat-toolbar-row>
 
         <button mat-button routerLinkActive="active" routerLink="" (click)="dropActiveGame()">devgames</button>
+        
+        <div *ngIf="!username" fxFlex fxLayoutAlign="flex-end">
+          <ul fxLayout="row" fxLayoutGap="20px">
+            <li>
+              <button mat-button routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
+                Register
+              </button>
+            </li>
+            <li>
+              <button mat-button routerLinkActive="active" routerLink="/login" (click)="dropActiveGame()">
+                Login
+              </button>
+            </li>
+          </ul>
+        </div>
 
-        <div fxFlex fxLayoutAlign="flex-end">
+        <div *ngIf="username" fxFlex fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
               <li>
-                <button mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
+                <button  mat-icon-button routerLinkActive="active" routerLink="/about" (click)="dropActiveGame()">
                   <mat-icon>help_outline</mat-icon>
                 </button>
               </li>
@@ -17,36 +32,28 @@
                     </button>
               </li>
 
-                <li>
+              <li>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>person_outline</mat-icon>
+                </button>
+              </li>
+              <li>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">Profile</button>
 
-                  <button mat-icon-button [matMenuTriggerFor]="menu">
-                    <mat-icon>person_outline</mat-icon>
+                  <button mat-menu-item routerLinkActive="active" routerLink="" (click)="signOut()">
+                    <mat-icon>exit_to_app</mat-icon>
+
+                    Sign out
                   </button>
+                </mat-menu>
+              </li>
 
-                  <mat-menu #menu="matMenu">
-                    <button *ngIf="!username" mat-menu-item routerLinkActive="active" routerLink="/register" (click)="dropActiveGame()">
-                      Register
-                    </button>
-                    <button *ngIf="!username" mat-menu-item routerLinkActive="active" routerLink="/login" (click)="dropActiveGame()">
-                      Login
-                    </button>
-
-                    <button *ngIf="username" mat-menu-item routerLinkActive="active" routerLink="/profile" (click)="dropActiveGame()">Profile</button>
-
-                    <button *ngIf="username" mat-menu-item routerLinkActive="active" routerLink="" (click)="signOut()">
-                      <mat-icon>exit_to_app</mat-icon>
-                      Sign out
-                    </button>
-
-                  </mat-menu>
-                </li>
-
-                <li>
-                  <button mat-icon-button (click)="toggleSideBar()">
-                    <mat-icon>menu</mat-icon>
-                  </button>
-                </li>
-
+              <li>
+                <button mat-icon-button (click)="toggleSideBar()">
+                  <mat-icon>menu</mat-icon>
+                </button>
+              </li>
             </ul>
         </div>
     </mat-toolbar-row>

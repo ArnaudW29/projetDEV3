@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
 					this._router.navigate([""]);
 				}
 				else{
-					console.log('erreur')
+					console.log("Nom d'utilisateur / mot de passe inexistant.")
 				}
 			})
 	}
@@ -76,20 +76,3 @@ export class LoginComponent implements OnInit {
 		}
 	}
 }
-
-
-
-	/* J aurais fait un truc duu genre avec du mySQL
-	function getUserID(name){
-		let xhr = new XMLHttpRequest();
-		let url = 'getUserID?username=' + name;
-		xhr.open('get', url, true);
-		xhr.onload = function(){
-				userID = xhr.responseText; 
-				//console.log("votre id est = " + xhr.responseText); 
-				displayFormProd();
-				recupererCarnet();
-				};
-		xhr.send();
-	}
-	*/

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 	user: LoginModel = new LoginModel();
 	loginForm: FormGroup;
 	apiUrl: string = environment.apiUrl;
+	hide = true;
 
 	constructor(private formBuilder: FormBuilder, private http: HttpClient, private _router: Router, private userService: UserService) { }
 

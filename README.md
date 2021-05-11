@@ -42,3 +42,13 @@ npm install mocha --save-dev
 REM SuperTest is used to test HTTP calls
 npm i supertest --save-dev
 ```
+
+Test front end (angular) : 
+```
+ng test
+```
+
+Test back end (express) :
+```
+npm test
+```

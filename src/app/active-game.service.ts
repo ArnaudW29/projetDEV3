@@ -36,14 +36,6 @@ export class ActiveGameService {
 
   /**
    *
-   * @returns la valeur de activeGame
-   */
-  getActiveGame() {
-    return this.activeGame;
-  }
-
-  /**
-   *
    * effectue une requete http vers le serveur express afin de recuperer la description du jeu actif
    *
    * @returns la description du jeu actif

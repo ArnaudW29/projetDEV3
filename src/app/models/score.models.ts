@@ -1,4 +1,4 @@
 export interface Score{
-    "pseudo": string;
-    "score": number;
+    pseudo: string;
+    score: string;
 }

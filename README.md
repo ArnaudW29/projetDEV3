@@ -38,7 +38,8 @@ node server
 
 ```
 REM mocha is used to test express apps
-npm install mocha --save-dev
+npm install mocha nyc --save-dev
 REM SuperTest is used to test HTTP calls
 npm i supertest --save-dev
+npm i --save-dev chai
 ```

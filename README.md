@@ -33,3 +33,12 @@ ng build
 REM run express server  
 node server
 ```
+
+## unit tests
+
+```
+REM mocha is used to test express apps
+npm install mocha --save-dev
+REM SuperTest is used to test HTTP calls
+npm i supertest --save-dev
+```

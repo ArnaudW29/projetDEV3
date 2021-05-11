@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "nodemon server",
     "build": "ng build",
     "test": "nyc --reporter=text mocha",
     "lint": "ng lint",

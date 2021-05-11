@@ -1,10 +1,12 @@
 // import services
 import { ActiveGameService } from './../../active-game.service';
+import { UserService } from 'src/app/user.service';
 
+// default imports
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 
+// local imports
 import { environment } from './../../../environments/environment'
-import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-widget-game-expanded',
@@ -14,14 +16,16 @@ import { UserService } from 'src/app/user.service';
 export class GameExpandedComponent implements OnInit, OnChanges {
 
   @Input() activeGame!: string;
-  connectedUser!: any;
 
   @Output() closeSideBarEvent: EventEmitter<any> = new EventEmitter();
 
+  // variables
   activeGametitle: string;
   description: any;
   gameImageUrl: String = "";
+  connectedUser!: any;
 
+  // dynamic button
   buttonText: string = "Connecte toi pour jouer !"
   buttonRouterLink: string = '/login';
 
@@ -32,8 +36,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    */
   constructor(private activeGameService: ActiveGameService, private userService: UserService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   /**
    * 
@@ -56,6 +59,11 @@ export class GameExpandedComponent implements OnInit, OnChanges {
     this.changeTitle()
   }
 
+  /**
+   * 
+   * Permet de modifier la valeur de la variable activeGame en fonction des choix de l'utilisateur
+   * 
+   */
   changeTitle() {
     switch(this.activeGame) {
       case "morpion": {
@@ -77,6 +85,12 @@ export class GameExpandedComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * 
+   * permet de fermer la sidebar lorsque l'utilisateur clique sur le bouton
+   * (il est redirige sur une autre section du site - c'est le meme comportement que celui adopte dans le header)
+   * 
+   */
   closeSideBar() {
     this.closeSideBarEvent.emit();
   }

@@ -1,4 +1,7 @@
+// default imports
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+
+// import services
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -14,6 +17,7 @@ export class HeaderComponent implements OnInit {
   @Output() dropActiveGameEvent: EventEmitter<any> = new EventEmitter();
   @Output() signOutEvent: EventEmitter<any> = new EventEmitter();
 
+  // variables
   username: string = '';
 
   constructor(private userService: UserService) {
@@ -42,6 +46,11 @@ export class HeaderComponent implements OnInit {
     this.dropActiveGameEvent.emit();
   }
 
+  /**
+   * 
+   * permet de deconnecter l'utilisateur
+   * 
+   */
   signOut() {
     this.signOutEvent.emit();
     this.userService.setUsername('');

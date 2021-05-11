@@ -1,18 +1,21 @@
+// local imports
 import { Leaderboard } from './app.component';
-import { Injectable } from '@angular/core';
+import { environment } from './../environments/environment'
 
+// default imports
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { environment } from './../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActiveGameService {
-
+  // variables
   url: string = environment.apiUrl
   game_url!: string;
 
+  // observables
   private activeGame = new Subject<string>(); // Source
   activeGame$ = this.activeGame.asObservable(); // Stream
 

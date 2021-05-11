@@ -17,14 +17,11 @@ import { HostListener } from "@angular/core";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  // variables
   username: any;
   userIsAdmin: any;
-
   screenWidth: any = window.innerWidth;
-
   selectedGame: string = '';
-
   sideBarOpen: boolean;
   sideBarMode: string;
 
@@ -37,6 +34,11 @@ export class AppComponent {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
+  /**
+   * 
+   * permet de fermer la sidebar lorsque l'utilisateur clique sur un bouton de naviguation du header
+   * 
+   */
   closeSideBar() {
     console.log('test');
     this.sideBarOpen = false;
@@ -79,6 +81,11 @@ export class AppComponent {
     
   }
 
+  /**
+   * 
+   * Permet un affichage responsive
+   * 
+   */
   dynamicWindowResize(){
     if ( this.screenWidth < 1280) {
       this.sideBarMode = "over";
@@ -88,6 +95,14 @@ export class AppComponent {
     }
   }
 
+  /**
+   * 
+   * permet de detecter un changement de largeur de l'écran (permet un design responsive tenant compte d'un 
+   *  agrandissement/retrecissement de la fenetre du naviguateur)
+   * 
+   * @param event 
+   * 
+   */
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     this.screenWidth = window.innerWidth;
@@ -96,6 +111,7 @@ export class AppComponent {
 
 }
 
+// models
 export interface Description {
   name: string;
   description: string;

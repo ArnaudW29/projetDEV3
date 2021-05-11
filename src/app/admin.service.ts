@@ -1,12 +1,15 @@
+// default imports
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+// local imports
 import { environment } from './../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-
+  // variables
   url: string  = environment.apiUrl
 
   /**

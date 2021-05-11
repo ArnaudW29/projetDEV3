@@ -1,7 +1,12 @@
+// import services
 import { ActiveGameService } from './../../active-game.service';
-import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+
+// default imports
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+// local imports
 import { environment } from './../../../environments/environment';
 
 @Component({
@@ -13,9 +18,9 @@ export class SidebarComponent implements OnInit {
 
   @Input() userIsAdmin: boolean = false;
 
+  // variables
   selectedGame: string = '';
   username: string = '';
-
   url: string  = environment.apiUrl
 
    /**

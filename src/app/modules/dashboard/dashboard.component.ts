@@ -1,12 +1,13 @@
 // import services
 import { ActiveGameService } from './../../active-game.service';
+import { SidebarService } from 'src/app/sidebar.service';
+import { UserService } from 'src/app/user.service';
+
+// local imports
+import { environment } from './../../../environments/environment'
 
 // default imports
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-import { environment } from './../../../environments/environment'
-import { SidebarService } from 'src/app/sidebar.service';
-import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  // variables
   description: any;
   activeGame: string = '';
   apiUrl: string = environment.apiUrl;
@@ -43,6 +44,11 @@ export class DashboardComponent implements OnInit {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
   }
 
+  /**
+   * 
+   * permet de fermer la sidebar depuis ce component, par l'intermédiaire du service sidebar
+   * 
+   */
   closeSideBar() {
     this.sideBarService.changeSideBarOpen(false);
   }

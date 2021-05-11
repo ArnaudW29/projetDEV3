@@ -1,8 +1,13 @@
+// default imports
 import { TestBed } from '@angular/core/testing';
 
+// tested component import
 import { ActiveGameService } from './active-game.service';
 
+// test http
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
+// model imports
 import { Score } from './models/score.models';
 
 describe('ActiveGameService', () => {

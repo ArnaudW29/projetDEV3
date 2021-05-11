@@ -1,15 +1,13 @@
-import { getTestBed, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ActiveGameService } from './active-game.service';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
 import { Score } from './models/score.models';
 
 describe('ActiveGameService', () => {
   let service: ActiveGameService;
   let httpMock: HttpTestingController;
-  let httpClient: HttpClient
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,7 +16,6 @@ describe('ActiveGameService', () => {
     });
     service = TestBed.inject(ActiveGameService);
     httpMock = TestBed.inject(HttpTestingController);
-    httpClient = TestBed.inject(HttpClient);
   });
 
   it('should be created', () => {

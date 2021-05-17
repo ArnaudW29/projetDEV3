@@ -37,7 +37,7 @@ describe('The users userId route', function() {
         });
     });
 
-    it('should return all users', function() {
+    it('should return a user', function() {
         return request(app)
             .get('/users/607701d0b0ecbbef305074fc')
             .then(function(response){

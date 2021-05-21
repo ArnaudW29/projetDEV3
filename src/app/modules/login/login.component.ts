@@ -35,21 +35,6 @@ export class LoginComponent implements OnInit {
 		});
 	}
 	
-
-	userList = []
-
-
-	//retourne faux si l'utilisateur n'existe pas, vrai sinon.
-	userExist(name){
-		for(let i in this.userList){
-		//console.log(userList[i].username);
-		if(this.userList[i].username == name){
-			return true;
-		}
-		}
-		return false;
-	};
-
 	onLoginSubmit(){
 		this.http.post(this.apiUrl + 'login/userpsw', this.loginForm.value)
 			.subscribe((response)=>{

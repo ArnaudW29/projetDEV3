@@ -9,6 +9,63 @@ const bodyParser = require('body-parser');
 // express app creation
 const app = express();
 
+
+//IO
+const http = require('http').createServer(app);
+const io = require('socket.io')(http,{
+  cors:{
+    origins: ['http://localhost:4200']
+  }
+});
+
+io.on('connection', function(socket){
+
+  console.log('A user connected')
+  socket.on('username', function (username){
+      socket.username= username;
+      joinRoom({username: socket.username, room: 'All'});
+  });
+
+
+  socket.on('newMsg', function(data){
+      io.in(socket.room).emit('newMsg', {username: socket.username, message: data.message});
+
+  })
+
+  socket.on('isWriting' ,function(username){
+    io.in(socket.room).broadcast.emit('isWriting', username)
+  })
+
+  socket.on('notWriting' ,function(username){
+    io.in(socket.room).broadcast.emit('notWriting')
+  })
+
+
+  socket.on('disconnect', function(){
+      io.in(socket.room).emit("leavingUser", {username: socket.username, message: ' a quitté le chat'});
+
+      console.log('user disconnected');
+  })
+  socket.on('joinRoom', function(data){
+    leaveRoom()
+    joinRoom(data)
+  })
+  function joinRoom(data){
+
+    socket.join(data.room);
+    socket.room= data.room;
+    console.log( socket.username + ' a rejoint : ' + room)
+    io.in(room).emit("newUser", {username: socket.username, message: ' a rejoint le chat'});
+  }
+
+  function leaveRoom(){
+    socket.broadcast.to(socket.room).emit("leavingUser", {username: socket.username, message: ' a quitté le chat'});
+    socket.leaveAll();
+    socket.room = None ;
+  }
+
+});
+
 // variables
 const port = process.env.PORT || 3000
 
@@ -91,8 +148,6 @@ app.post('/login/userpsw', function(req, res){
 app.listen(port, function(){
     console.log("Server running on localhost:" + port);
 });
-
-
 
 
 module.exports = app;

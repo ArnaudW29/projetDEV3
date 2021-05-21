@@ -1,4 +1,5 @@
 // default imports
+import { ChatService } from './../../chat.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameChatRoomComponent implements OnInit {
 
-  constructor() { }
+  constructor( private chatService: ChatService ) {
+  }
 
   ngOnInit(): void { }
 

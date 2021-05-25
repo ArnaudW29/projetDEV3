@@ -50,19 +50,24 @@ export class AppComponent {
    * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
    *
    */
-  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService, private ChatService: ChatService) {
+  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService, private chatService: ChatService) {
     this.userService.userIsAdmin$.subscribe(status => {this.userIsAdmin = (status == 'true');});
-    this.ChatService.setupConnection();
+
   }
 
   /**
    * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
+   * Etablie la connexion io et récupère le pseudo pour le chatService
    */
   ngOnInit() {
     this.username = this.userService.getUsername();
     this.sideBarService.changeSideBarOpen(false);
     this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
     this.dynamicWindowResize();
+    this.chatService.setupConnection();
+    this.chatService.getUserName(this.userService.getUsername())
+
+
   }
 
   /**

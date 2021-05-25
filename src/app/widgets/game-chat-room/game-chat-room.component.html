@@ -6,7 +6,7 @@
 
   <div id="chatbox">
       <div id= 'msgBox'>
-          <div  *ngFor="let item of listeMsg;" [ngClass]=" {'alerte':item.message===' a rejoint le chat', 'alerte': item.message=== ' a quitté le chat'} ">
+          <div  *ngFor="let item of listeMsg;" [ngClass]=" {'joinChat':item.message=== ' a rejoint le chat', 'leaveChat': item.message=== ' a quitté le chat'} ">
            <Strong>{{item.username}} : </Strong> {{item.message}} <br>
           </div>
       </div>

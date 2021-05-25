@@ -47,9 +47,15 @@ io.on('connection', function(socket){
       console.log('user disconnected');
   })
   socket.on('joinRoom', function(data){
+    // Vérifie que l'utilisateur ne soit pas déja dans la room dans laquelle il veut se connecter ( évite le spam de msg )
+    if (socket.room === data.roomName){
+      console.log('rien ne se passe');
+    }
+    else {
     leaveRoom()
-    joinRoom(data)
+    joinRoom(data)}
   })
+
   function joinRoom(data){
     socket.join(data.roomName);
     socket.room= data.roomName;

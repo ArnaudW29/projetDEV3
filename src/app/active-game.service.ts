@@ -39,7 +39,6 @@ export class ActiveGameService {
   changeActiveGame(game: string) {
     this.activeGame.next(game);
     this.game_url = game;
-    this.chatService.getUserName(this.userService.getUsername())
     this.chatService.joinRoom(game);
   }
 

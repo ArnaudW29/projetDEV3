@@ -12,6 +12,7 @@ export class ChatService {
 
   socket: any;
   username: string;
+  visiteur: string
   constructor( ) {}
 
 
@@ -22,7 +23,15 @@ export class ChatService {
 
   getUserName(pseudoReçu: string){
     console.log(pseudoReçu + ' reçu sur le service');
-    this.socket.emit("username", pseudoReçu);
+    // Si l'utilisateur ne se connecte pas à un compte, ça lui attribue un numéro de guest pour communiquer dans le chat
+    if (pseudoReçu==''){
+      this.visiteur = " Guest" + String(Math.floor(Math.random() * 1000));
+      this.socket.emit("username", this.visiteur);
+    }
+
+    else{
+      this.socket.emit("username", pseudoReçu);
+    }
   }
 
 

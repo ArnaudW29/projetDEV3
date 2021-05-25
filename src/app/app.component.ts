@@ -2,6 +2,7 @@
 import { UserService } from './user.service';
 import { ActiveGameService } from './active-game.service';
 import { SidebarService } from './sidebar.service';
+import { ChatService } from './chat.service';
 
 // default imports
 import { Component } from '@angular/core';
@@ -26,18 +27,18 @@ export class AppComponent {
   sideBarMode: string;
 
   /**
-   * 
+   *
    * toggle la valeur de la variable sideBarOpen. celle-ci est utilisee pour definir l'etat ouvert ou ferme de la barre laterale
-   * 
+   *
    */
   sidebarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
   /**
-   * 
+   *
    * permet de fermer la sidebar lorsque l'utilisateur clique sur un bouton de naviguation du header
-   * 
+   *
    */
   closeSideBar() {
     console.log('test');
@@ -45,12 +46,13 @@ export class AppComponent {
   }
 
   /**
-   * 
+   *
    * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
-   * 
+   *
    */
-  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService) {
+  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService, private ChatService: ChatService) {
     this.userService.userIsAdmin$.subscribe(status => {this.userIsAdmin = (status == 'true');});
+    this.ChatService.setupConnection();
   }
 
   /**
@@ -64,10 +66,10 @@ export class AppComponent {
   }
 
   /**
-   * 
+   *
    * change la valeur de la variable activeGame du service active-game.service et recupere
    * la description associee au nouveau jeu actif
-   * 
+   *
    * @param game - la nouvelle valeur de activeGame
    */
    dropActiveGame() {
@@ -78,13 +80,13 @@ export class AppComponent {
   }
 
   signOut() {
-    
+
   }
 
   /**
-   * 
+   *
    * Permet un affichage responsive
-   * 
+   *
    */
   dynamicWindowResize(){
     if ( this.screenWidth < 1280) {
@@ -96,17 +98,17 @@ export class AppComponent {
   }
 
   /**
-   * 
-   * permet de detecter un changement de largeur de l'écran (permet un design responsive tenant compte d'un 
+   *
+   * permet de detecter un changement de largeur de l'écran (permet un design responsive tenant compte d'un
    *  agrandissement/retrecissement de la fenetre du naviguateur)
-   * 
-   * @param event 
-   * 
+   *
+   * @param event
+   *
    */
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
     this.screenWidth = window.innerWidth;
-    this.dynamicWindowResize();    
+    this.dynamicWindowResize();
   }
 
 }

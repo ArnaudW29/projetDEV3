@@ -1,16 +1,19 @@
 <div id="wrapper">
   <div id="menu">
+    <strong> Salon textuel </strong>
 
   </div>
-     
+
   <div id="chatbox">
-      <div id='joined'>  
+      <div id= 'msgBox'>
+          <div  *ngFor="let item of listeMsg;" [ngClass]=" {'alerte':item.message===' a rejoint le chat', 'alerte': item.message=== ' a quitté le chat'} ">
+           <Strong>{{item.username}} : </Strong> {{item.message}} <br>
+          </div>
       </div>
-      <div id= msgBox></div>
   </div>
-     
-    <form action = '#' id ='formChat'>
-        <input name="userMsg" type="text" id="userMsg" size="75">
-        <button name="submit"  mat-raised-button color="primary" onClick='envoieMsg(event)'  id="envoie" >Envoyer</button>
+
+    <form action = '#' id ='formChat' name= 'formChat'>
+        <input name="userMsg" type="text" id="userMsg"  size="75" [(ngModel)]="contentMsg" placeholder="Envoyer un message" >
+        <button name="submit"  mat-raised-button color="primary" (click)='envoieMsg();'  id="envoie" >Envoyer</button>
     </form>
 </div>

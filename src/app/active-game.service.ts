@@ -7,6 +7,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
+// Servicei imports
+import { ChatService } from './chat.service';
+import { UserService } from 'src/app/user.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,17 +28,19 @@ export class ActiveGameService {
    * @param httpClient - importe du module @angular/comon/http ; declare ici afin de pouvoir etre utilise dans ActiveGameService
    *
    */
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private chatService: ChatService , private userService: UserService) { }
 
   /**
    *
-   * change la valeur de activeGame et de game_url
+   * change la valeur de activeGame, de game_url et fait rejoindre le chat textuel associé au jeu
    *
    * @param game - nouveau jeu actif
    */
   changeActiveGame(game: string) {
     this.activeGame.next(game);
     this.game_url = game;
+    this.chatService.getUserName(this.userService.getUsername())
+    this.chatService.joinRoom(game);
   }
 
   /**

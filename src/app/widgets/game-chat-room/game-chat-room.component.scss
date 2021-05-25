@@ -3,21 +3,23 @@ body {
     color: #222;
     text-align:center;
     padding:35px; }
-  
+
 form, p, span {
     margin:0;
     padding:0; }
-  
-input { font:12px arial; }
-    
+
+input { font:12px arial;
+align-items: center;
+}
+
 #wrapper {
     margin:0 auto;
     padding-bottom:25px;
     background:#EBF4FB;
     border:1px solid #ACD8F0; }
-  
 
-  
+
+
 #chatbox {
     text-align:left;
     margin:0 auto;
@@ -28,5 +30,13 @@ input { font:12px arial; }
     width:95%;
     border:1px solid #ACD8F0;
     overflow:auto; }
-  
-#menu { padding:12.5px 25px 12.5px 25px; }
+
+#menu {
+  padding:12.5px 25px 12.5px 25px;
+  text-align: center;
+ }
+
+.alerte{
+  color:  #497381
+
+}

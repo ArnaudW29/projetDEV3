@@ -1,7 +1,8 @@
 import { UserService } from './../../user.service';
-import { ChatService } from './../../chat.service';
+
 
 // default imports
+import { ChatService } from './../../chat.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

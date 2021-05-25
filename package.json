@@ -14,8 +14,8 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.9",
-    "@angular/cdk": "^11.2.10",
     "@angular/cli": "~11.2.8",
+    "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.2.9",
     "@angular/compiler": "~11.2.9",
     "@angular/compiler-cli": "~11.2.9",
@@ -29,7 +29,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.6",
+    "mongoose": "^5.12.10",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "socket.io": "^4.1.2",

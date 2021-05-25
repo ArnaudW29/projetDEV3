@@ -8,6 +8,7 @@ import { io } from 'socket.io-client';
   providedIn: 'root'
 })
 export class ChatService {
+ // variable
 
   socket: any;
   username: string;

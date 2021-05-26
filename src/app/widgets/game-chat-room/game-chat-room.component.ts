@@ -38,8 +38,6 @@ export class GameChatRoomComponent {
     }
 
     joinRoom(){
-      this.listeMsg= [];
-      document.getElementById('msgBox').innerHTML= '';
       this.chatService.joinRoom({username:this.username,room: this.room });
     }
 

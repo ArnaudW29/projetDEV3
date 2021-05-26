@@ -59,7 +59,7 @@ io.on('connection', function(socket){
   function joinRoom(data){
     socket.join(data.roomName);
     socket.room= data.roomName;
-    console.log( data.username + ' a rejoint : ' + socket.room)
+    console.log( socket.username + ' a rejoint : ' + socket.room)
     io.in(socket.room).emit("newUser", {username: socket.username, message: ' a rejoint le chat'});
   }
 

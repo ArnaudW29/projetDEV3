@@ -65,9 +65,7 @@ export class AppComponent {
     this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
     this.dynamicWindowResize();
     this.chatService.setupConnection();
-
-
-
+    this.chatService.getUserName(this.username);
   }
 
   /**

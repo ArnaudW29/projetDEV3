@@ -20,7 +20,45 @@ const routes: Routes = [{
   path: '',
   component: DashboardComponent,
 },{
-  path: 'morpion',
+  path: 'morpion1',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},{
+  path: 'morpion2',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},{
+  path: 'morpion3',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},
+{
+  path: 'morpion4',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},
+{
+  path: 'morpion5',
   component: GameScreenComponent,
   children: [
     {

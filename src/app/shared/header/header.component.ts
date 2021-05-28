@@ -3,6 +3,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 // import services
 import { UserService } from 'src/app/user.service';
+import { ChatService } from 'src/app/chat.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
   // variables
   username: string = '';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private chatService: ChatService) {
     this.userService.username$.subscribe(username => {this.username = username;});
   }
 
@@ -43,7 +44,8 @@ export class HeaderComponent implements OnInit {
    *
    */
    dropActiveGame() {
-    this.dropActiveGameEvent.emit();
+    this.dropActiveGameEvent.emit()
+    this.chatService.joinRoom('');
   }
 
   /**

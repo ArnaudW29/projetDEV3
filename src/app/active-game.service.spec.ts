@@ -21,19 +21,12 @@ describe('ActiveGameService', () => {
     });
     service = TestBed.inject(ActiveGameService);
     httpMock = TestBed.inject(HttpTestingController);
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
     service.changeActiveGame("morpion");
-  });
-
-  it('should change the active game', (done) => {
-    service.changeActiveGame("morpion");
-    service.activeGame$.subscribe(activeGame => {
-      expect(activeGame).toBe("morpion");
-      done();
-    });
   });
 
   it('getDescription() should http GET active game description', () => {

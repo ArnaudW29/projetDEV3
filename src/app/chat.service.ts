@@ -96,6 +96,16 @@ export class ChatService {
     return observable;
   }
 
+
+  startGame(){
+    var observable = new Observable(observer =>{
+      this.socket.on('startGame', (data)=> {
+        observer.next(data)
+      });
+    });
+    return observable;
+  }
+
  /* isWriting(data){
     this.socket.emit('isWriting', data);
     console.log('passé ds le service')

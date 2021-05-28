@@ -40,7 +40,7 @@ export class GameChatRoomComponent implements OnChanges {
     }
 
     envoieMsg(){
-      if((document.getElementById("userMsg") as HTMLInputElement).value.length > 0){
+      if((document.getElementById("userMsg") as HTMLInputElement).value.length > 0 && (document.getElementById("userMsg") as HTMLInputElement).value.charCodeAt(0) >32 ){
         this.chatService.envoieMsg({username:this.username,room: this.room , message:this.contentMsg});
         (document.getElementById("userMsg") as HTMLInputElement).value = ""
       }

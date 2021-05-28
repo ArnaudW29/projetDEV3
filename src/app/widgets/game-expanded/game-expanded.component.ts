@@ -1,7 +1,10 @@
+
 // import services
 import { ActiveGameService } from './../../active-game.service';
 import { UserService } from 'src/app/user.service';
 import { ChatService } from './../../chat.service';
+import { Router } from '@angular/router';
+
 
 // default imports
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
@@ -37,7 +40,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
    *
    */
-  constructor(private activeGameService: ActiveGameService, private userService: UserService, private chatService: ChatService) {
+  constructor(private activeGameService: ActiveGameService, private userService: UserService, private chatService: ChatService, private _router: Router) {
 
     this.chatService.joueursConnectés()
     .subscribe(data=>{
@@ -57,11 +60,24 @@ export class GameExpandedComponent implements OnInit, OnChanges {
       console.log(data.nbConnecté+ " joueur connecté dans la room "+ data.room + " que je viens de quitter")
       for (let e of cléMorpion){
         if ( e === data.room){
-         this.morpion[e]-=1
+          if (data.nbConnecté!=1 && data.nbConnecté!=2){
+            this.morpion[e]= 0
+          }
+          else{
+         this.morpion[e]= data.nbConnecté
+          }
         }
       }
+    })
+
+
+    this.chatService.startGame()
+    .subscribe(data =>{
+      this._router.navigate([data]);
 
     })
+
+
 
   }
 
@@ -76,6 +92,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
     this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
+    this.roomsVisibles= false;
     if(this.userService.getUsername()){
       this.buttonText = "play now!";
       this.buttonRouterLink = '/' + this.activeGame;
@@ -129,6 +146,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   }
 
   voirRooms(jeuxActif){
+    if (this.userService.getUsername())
     this.roomsVisibles= true
   }
 

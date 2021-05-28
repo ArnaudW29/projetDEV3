@@ -3,9 +3,9 @@
     flex-direction: column;
     height: 100%;
   }
-  
+
 mat-drawer {
-  width: 300px;
+  width: 600px;
 }
 
 mat-drawer-container {
@@ -18,6 +18,12 @@ mat-drawer-content {
 }
 
 @media only screen and (max-width: 400px) {
+  mat-drawer {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   mat-drawer {
     width: 80%;
   }

@@ -44,7 +44,7 @@ export class ActiveGameService {
    * @returns la description du jeu actif
    */
   getDescription() {
-    return this.httpClient.get(this.url + 'description/' + this.game_url);
+    return this.httpClient.get(this.url + 'games/description/' + this.game_url);
   }
 
   /**
@@ -54,6 +54,6 @@ export class ActiveGameService {
    * @returns le leaderboard du jeu actif
    */
   getLeaderboard() {
-    return this.httpClient.get<Leaderboard[]>(this.url + 'leaderboard/' + this.game_url);
+    return this.httpClient.get<Leaderboard[]>(this.url + 'games/leaderboard/' + this.game_url);
   }
 }

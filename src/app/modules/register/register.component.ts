@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
   }
   onRegisterSubmit(){
     if(this.registerForm.valid){
-      this.http.post(this.apiUrl + 'sendReg', this.registerForm.value)
+      this.http.put(this.apiUrl + 'users/sendReg', this.registerForm.value)
         .subscribe((response)=> {
           console.log('response',response);
         })

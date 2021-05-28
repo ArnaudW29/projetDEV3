@@ -13,5 +13,8 @@ const registerSchema = new Schema({
   scoreGame3: Number,
   scoreGame4: Number,
   password: String,
+},{
+  versionKey: false
 });
+
 module.exports = mongoose.model('sendReg', registerSchema, 'users');

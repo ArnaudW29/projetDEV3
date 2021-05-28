@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 	}
 	
 	onLoginSubmit(){
-		this.http.post(this.apiUrl + 'login/userpsw', this.loginForm.value)
+		this.http.post(this.apiUrl + 'users/login/userpsw', this.loginForm.value)
 			.subscribe((response)=>{
 				if(response){
 					let current_usrname = document.getElementById('aled')[0].value;

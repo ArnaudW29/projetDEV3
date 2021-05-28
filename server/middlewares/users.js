@@ -13,6 +13,22 @@ function checkUserCredentials(req, res, next) {
     });
 };
 
+function uniqueUsername(req, res, next) {
+    User.find({ username:req.body.username }).exec(function(err, user) {
+        if(err) {
+            res.sendStatus(404);
+        } else if (user.length === 0){
+            next();
+        } else {
+            res.sendStatus(422);
+        };
+    });
+}
+
+
+
+
 module.exports = {
-    checkUserCredentials
+    checkUserCredentials,
+    uniqueUsername
 };

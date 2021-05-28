@@ -36,7 +36,6 @@ router.get('/username/:id', function(req, res){
 
 // [GET] email from username
 router.get('/email/:usr', function(req, res){
-    // User.find({ username:usrname, password:psw}).exec(function(err, user){
     User.find({ username: req.params.usr }, function(err, users){
         if(err){
             res.sendStatus(404);
@@ -48,7 +47,6 @@ router.get('/email/:usr', function(req, res){
 
 // [GET] admin status from username
 router.get('/isAdmin/:usr', function(req, res){
-    // User.find({ username:usrname, password:psw}).exec(function(err, user){
     User.find({ username: req.params.usr }, function(err, users){
         if(err){
             res.sendStatus(404);

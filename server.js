@@ -6,6 +6,9 @@ const router = express.Router();
 let cors = require('cors');
 const bodyParser = require('body-parser');
 
+// middlewares
+const { uniqueUsername } = require('./server/middlewares/users');
+
 // express app creation
 const app = express();
 
@@ -110,25 +113,29 @@ app.get('*', (req, res) => {
 });
 
 //post
-app.post('/sendReg', function(req ,res){
-  var newUser = new SendReg();
-  newUser.username = req.body.username;
-  newUser.email = req.body.email;
-  newUser.password = req.body.password;
-  newUser.admin = false;
-  newUser.warning = 0;
-  newUser.blacklist = false;
-  newUser.scoreGame1 = 0;
-  newUser.scoreGame2 = 0;
-  newUser.scoreGame3 = 0;
-  newUser.scoreGame4 = 0;
-  newUser.save(function(err, insertedUser){
-    if(err){
-      res.sendStatus(404);
-    } else{
-      res.json(insertedUser)
-    }
-  })
+app.post('/sendReg', uniqueUsername, function(req ,res){
+  if(!req.body.username || !req.body.password || !req.body.email) {
+    res.sendStatus(422);
+  } else {
+    var newUser = new SendReg();
+    newUser.username = req.body.username;
+    newUser.email = req.body.email;
+    newUser.password = req.body.password;
+    newUser.admin = false;
+    newUser.warning = 0;
+    newUser.blacklist = false;
+    newUser.scoreGame1 = 0;
+    newUser.scoreGame2 = 0;
+    newUser.scoreGame3 = 0;
+    newUser.scoreGame4 = 0;
+    newUser.save(function(err, insertedUser){
+      if(err){
+        res.sendStatus(404);
+      } else{
+        res.json(insertedUser)
+      }
+    })
+  }
 });
 
 

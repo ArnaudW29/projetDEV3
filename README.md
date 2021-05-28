@@ -22,7 +22,7 @@ ng add @angular/material
 REM set up Angular Flex-Layout
 npm install --save @angular/flex-layout @angular/cdk
 REM install express, path, mongoose, cors, body-parser
-npm i --save express path mongoose cors body-parser
+npm i --save express path mongoose cors body-parser socket.io socket.io-client
 ```
 
 ## run local app

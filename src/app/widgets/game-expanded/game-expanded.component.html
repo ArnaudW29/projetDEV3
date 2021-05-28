@@ -6,18 +6,29 @@
     <img src="{{ gameImageUrl }}" alt="">
   </div>
   <div fxFlex="35" fxLayout="column">
-    <div fxFlex="60">
+    <div fxFlex="60" >
       {{ description }}
     </div>
+    <div *ngIf="roomsVisibles; else elseBlock">
+      <form name='formulaireRooms' id= 'formulaireRooms'>
+        <tr id=  '${activeGame}'  ><td> Joueurs connectés<br> {{morpion.morpion1}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('1')"> Rejoindre</button></td></tr>
 
+        <tr id=  '${activeGame} 2' ><td> Joueurs connectés<br>{{morpion.morpion2}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('2')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 3' ><td> Joueurs connecté<br>{{morpion.morpion3}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('3')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 4' ><td> Joueurs connectés<br>{{morpion.morpion4}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('4')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 5' ><td> Joueurs connectés<br> {{morpion.morpion5}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('5')"> Rejoindre</button></td></tr>
+      </form>
+    </div>
+    <ng-template #elseBlock>
     <br>
-
-    <div>{{connectedUser}}</div>
-
     <br>
+  </ng-template>
 
-    <button mat-stroked-button color="accent" routerLinkActive="active" 
-      routerLink="{{ buttonRouterLink }}" (click)="closeSideBar()">{{ buttonText }}</button>
+
+    <button mat-stroked-button color="accent"
+     (click)="voirRooms(activeGame)">{{ buttonText }}</button>
   </div>
 </div>
-  

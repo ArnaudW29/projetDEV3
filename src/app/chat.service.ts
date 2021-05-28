@@ -78,6 +78,24 @@ export class ChatService {
     return observable;
   }
 
+  joueursConnectés(){
+    var observable = new Observable<{ room :String, nbConnecté: number}>(observer =>{
+      this.socket.on('connectedUsers', (data)=> {
+        observer.next(data)
+      });
+    });
+    return observable;
+  }
+
+  joueursDéconnectés(){
+    var observable = new Observable<{ room :String, nbConnecté: number}>(observer =>{
+      this.socket.on('disconnectedUsers', (data)=> {
+        observer.next(data)
+      });
+    });
+    return observable;
+  }
+
  /* isWriting(data){
     this.socket.emit('isWriting', data);
     console.log('passé ds le service')

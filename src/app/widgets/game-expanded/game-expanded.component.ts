@@ -24,7 +24,9 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   activeGametitle: string;
   description: any;
   gameImageUrl: String = "";
-  connectedUser!: any;
+  connectedUsers: number;
+  roomsVisibles= false
+  morpion= {morpion1: 0, morpion2: 0, morpion3: 0 , morpion4: 0, morpion5: 0};
 
   // dynamic button
   buttonText: string = "Connecte toi pour jouer !"
@@ -35,7 +37,33 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
    *
    */
-  constructor(private activeGameService: ActiveGameService, private userService: UserService, private chatService: ChatService) { }
+  constructor(private activeGameService: ActiveGameService, private userService: UserService, private chatService: ChatService) {
+
+    this.chatService.joueursConnectés()
+    .subscribe(data=>{
+      var cléMorpion= Object.keys(this.morpion)
+      for (let e of cléMorpion){
+
+        if ( e === data.room){
+         this.morpion[e]= data.nbConnecté
+         console.log(this.morpion[e] + " dans la room " + e  + " QUE JE VIENS DE REJOINDRE")
+        }
+      }
+    })
+
+    this.chatService.joueursDéconnectés()
+    .subscribe(data=>{
+      var cléMorpion= Object.keys(this.morpion)
+      console.log(data.nbConnecté+ " joueur connecté dans la room "+ data.room + " que je viens de quitter")
+      for (let e of cléMorpion){
+        if ( e === data.room){
+         this.morpion[e]-=1
+        }
+      }
+
+    })
+
+  }
 
   ngOnInit(): void { }
 
@@ -97,7 +125,11 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   }
 
   joinGame(gameRoom){
-    this.chatService.joinGame(gameRoom)
+    this.chatService.joinGame( this.activeGame + gameRoom)
+  }
+
+  voirRooms(jeuxActif){
+    this.roomsVisibles= true
   }
 
 }

@@ -63,6 +63,7 @@ router.get('', function(req, res){
   })
 });
 
+// [DELETE] api route /users
 router.delete('/', checkUserCredentials, function(req ,res) {
     if(!req.body.username || !req.body.password) {
         res.sendStatus(422);

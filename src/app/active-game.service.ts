@@ -40,7 +40,6 @@ export class ActiveGameService {
     this.activeGame.next(game);
     this.game_url = game;
     this.chatService.joinRoom(game);
-
   }
 
   /**

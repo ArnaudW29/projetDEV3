@@ -40,12 +40,12 @@ io.on('connection', function(socket){
     io.in(socket.room).broadcast.emit('notWriting',{username: socket.username, message: " est en train d'écrire..."})
   })*/
 
-
   socket.on('disconnect', function(){
       io.in(socket.room).emit("leavingUser", {username: socket.username, message: ' a quitté le chat'});
 
       console.log('user disconnected');
   })
+
   socket.on('joinRoom', function(data){
     // Vérifie que l'utilisateur ne soit pas déja dans la room dans laquelle il veut se connecter ( évite le spam de msg )
     if (socket.room === data.roomName){
@@ -54,6 +54,10 @@ io.on('connection', function(socket){
     else {
     leaveRoom()
     joinRoom(data)}
+  })
+
+  socket.on('joinGame',function (data){
+
   })
 
   function joinRoom(data){

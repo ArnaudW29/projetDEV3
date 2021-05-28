@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" class="icon-container" fxLayoutAlign="space-between center">
-    <div fxFlex="0" fxFlex.lt-md="20"></div>  
+    <div fxFlex="0" fxFlex.lt-md="20"></div>
     <div fxFlex="50" fxFlex.lt-md="30" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
         <app-widget-game-icon fxFlex="50" label="game 1" (changeActiveGame)="changeActiveGame('morpion')"
         img_source="{{apiUrl}}images/game_icon/morpion"></app-widget-game-icon>
@@ -15,7 +15,7 @@
         <app-widget-game-icon fxFlex="50" label="game 4" (changeActiveGame)="changeActiveGame('garticPhones')"
         img_source="{{apiUrl}}images/game_icon/garticPhones"></app-widget-game-icon>
     </div>
-    <div fxFlex="0" fxFlex.lt-md="20"></div>  
+    <div fxFlex="0" fxFlex.lt-md="20"></div>
 </div>
 
 <br>
@@ -33,4 +33,3 @@
 <br>
 
 <app-widget-game-chat-room *ngIf="activeGame" [activeGame]="activeGame"></app-widget-game-chat-room>
-  

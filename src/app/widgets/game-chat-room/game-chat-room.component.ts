@@ -37,11 +37,6 @@ export class GameChatRoomComponent {
   */
     }
 
-    joinRoom(){
-      this.chatService.joinRoom({username:this.username,room: this.room });
-    }
-
-
     envoieMsg(){
       if((document.getElementById("userMsg") as HTMLInputElement).value.length > 0){
         this.chatService.envoieMsg({username:this.username,room: this.room , message:this.contentMsg});

@@ -36,7 +36,7 @@ describe('ActiveGameService', () => {
       expect(description).toEqual(expectedDescription), fail
     });
 
-    const req = httpMock.expectOne(`${service.url}description/${service.game_url}`);
+    const req = httpMock.expectOne(`${service.url}games/description/${service.game_url}`);
     expect(req.request.method).toEqual('GET');
     req.flush(expectedDescription);
   });
@@ -53,7 +53,7 @@ describe('ActiveGameService', () => {
       expect(leaderboard).toBe(expectedLeaderboard), fail
     });
 
-    const req = httpMock.expectOne(`${service.url}leaderboard/${service.game_url}`);
+    const req = httpMock.expectOne(`${service.url}games/leaderboard/${service.game_url}`);
     expect(req.request.method).toEqual('GET');
     req.flush(expectedLeaderboard);
   });

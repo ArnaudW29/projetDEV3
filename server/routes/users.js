@@ -1,14 +1,15 @@
 // express import
 const express = require('express');
 
-// local imports
-const User = require('../models/user');
-
 // express router creation
 const router = express.Router();
 
 // middlewares
-const { checkUserCredentials } = require('../middlewares/users');
+const { checkUserCredentials, uniqueUsername } = require('../middlewares/users');
+
+// local imports
+const User = require('../models/user');
+const SendReg = require('../models/sendReg');
 
 // ROUTES :
 
@@ -78,6 +79,49 @@ router.delete('/', checkUserCredentials, function(req ,res) {
             };
         })
     };
+});
+
+//post
+router.put('/sendReg', uniqueUsername, function(req ,res){
+    if(!req.body.username || !req.body.password || !req.body.email) {
+      res.sendStatus(422);
+    } else {
+      var newUser = new SendReg();
+      newUser.username = req.body.username;
+      newUser.email = req.body.email;
+      newUser.password = req.body.password;
+      newUser.admin = false;
+      newUser.warning = 0;
+      newUser.blacklist = false;
+      newUser.scoreGame1 = 0;
+      newUser.scoreGame2 = 0;
+      newUser.scoreGame3 = 0;
+      newUser.scoreGame4 = 0;
+      newUser.save(function(err, insertedUser){
+        if(err){
+          res.sendStatus(404);
+        } else{
+          res.json(insertedUser)
+        }
+      })
+    }
+  });
+
+
+router.post('/login/userpsw', function(req, res){
+  let usrname = req.body.username;
+  let psw = req.body.password;
+  User.find({ username:usrname, password:psw}).exec(function(err, user){
+    if(err){
+        res.sendStatus(404);
+    }
+    if(user.length != 0){
+        res.json(true);
+    }
+    else{
+      res.json(false)
+    }
+  })
 });
 
 module.exports = router;

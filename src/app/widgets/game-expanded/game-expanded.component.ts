@@ -47,7 +47,7 @@ export class GameExpandedComponent implements OnInit, OnChanges {
    */
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
-    this.gameImageUrl = environment.apiUrl + "images/games/" + this.activeGame;
+    this.gameImageUrl = environment.apiUrl + "games/image/" + this.activeGame;
     if(this.userService.getUsername()){
       this.buttonText = "play now!";
       this.buttonRouterLink = '/' + this.activeGame;

@@ -12,8 +12,8 @@
       </div>
   </div>
 
-    <form action = '#' id ='formChat' name= 'formChat'>
-        <input name="userMsg" type="text" id="userMsg"  size="75" [(ngModel)]="contentMsg" placeholder="Envoyer un message" >
-        <button name="submit"  mat-raised-button color="primary" (click)='envoieMsg();'  id="envoie" >Envoyer</button>
-    </form>
+  <form action = '#' id ='formChat' name= 'formChat' fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.gt-xs="20px" fxLayoutGap.lt-sm="10px" fxLayoutAlign=" center" >
+      <input name="userMsg" type="text" id="userMsg" [(ngModel)]="contentMsg" placeholder="Envoyer un message" fxFlex.gt-xs="80">
+      <button name="submit"  mat-raised-button color="primary" (click)='envoieMsg();'  id="envoie" fxFlex.gt-sm="20">Envoyer</button>
+  </form>
 </div>

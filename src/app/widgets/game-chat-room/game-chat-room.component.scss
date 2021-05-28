@@ -11,12 +11,13 @@ form, p, span {
 input { font:12px arial; }
 
 #userMsg {
-  width:395px;
-  border:1px solid #ACD8F0; }
+  border:1px solid #ACD8F0;
+  height: 36px;
+}
 
 #wrapper {
-    margin:0 auto;
-    padding-bottom:25px;
+    margin:0 auto 50px auto;
+    padding: 10px;
     background:#EBF4FB;
     width: 500px;
     border:1px solid #ACD8F0; }
@@ -30,7 +31,6 @@ input { font:12px arial; }
     padding:10px;
     background:#fff;
     height:270px;
-    width:95%;
     border:1px solid #ACD8F0;
     overflow:auto; }
 
@@ -50,4 +50,16 @@ input { font:12px arial; }
 
 .leaveChat{
   color:lightcoral
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper {
+    width: auto;
+  }
+  #envoie {
+    width: 100px;
+  }
+  #userMsg {
+    width: 90%;
+  }
 }

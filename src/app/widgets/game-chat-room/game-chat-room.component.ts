@@ -3,14 +3,16 @@ import { UserService } from './../../user.service';
 
 // default imports
 import { ChatService } from './../../chat.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-widget-game-chat-room',
   templateUrl: './game-chat-room.component.html',
   styleUrls: ['./game-chat-room.component.scss']
 })
-export class GameChatRoomComponent {
+export class GameChatRoomComponent implements OnChanges {
+
+  @Input() activeGame!: string;
 
   username: string
   room: string ;
@@ -37,11 +39,6 @@ export class GameChatRoomComponent {
   */
     }
 
-    joinRoom(){
-      this.chatService.joinRoom({username:this.username,room: this.room });
-    }
-
-
     envoieMsg(){
       if((document.getElementById("userMsg") as HTMLInputElement).value.length > 0){
         this.chatService.envoieMsg({username:this.username,room: this.room , message:this.contentMsg});
@@ -63,6 +60,10 @@ export class GameChatRoomComponent {
 
     }
     */
+
+    ngOnChanges() {
+      this.listeMsg = [];
+    }
   }
 
 

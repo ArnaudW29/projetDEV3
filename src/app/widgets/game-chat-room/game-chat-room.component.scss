@@ -2,20 +2,23 @@ body {
     font:12px arial;
     color: #222;
     text-align:center;
-    padding:35px; }
+    padding:100px; }
 
 form, p, span {
     margin:0;
     padding:0; }
 
-input { font:12px arial;
-margin: auto
-}
+input { font:12px arial; }
+
+#userMsg {
+  width:395px;
+  border:1px solid #ACD8F0; }
 
 #wrapper {
     margin:0 auto;
     padding-bottom:25px;
     background:#EBF4FB;
+    width: 500px;
     border:1px solid #ACD8F0; }
 
 
@@ -30,6 +33,10 @@ margin: auto
     width:95%;
     border:1px solid #ACD8F0;
     overflow:auto; }
+
+ #formchat{
+   margin: 0 auto;
+ }
 
 #menu {
   padding:12.5px 25px 12.5px 25px;

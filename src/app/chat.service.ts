@@ -34,6 +34,12 @@ export class ChatService {
     }
   }
 
+  joinGame(data){
+    this.socket.emit('joinRoom',{username: this.socket.username, roomName: data});
+    this.socket.emit('joinGame',{username: this.socket.username, roomName: data});
+
+
+  }
 
   joinRoom(data){
     this.socket.emit('joinRoom',{username: this.socket.username, roomName: data});
@@ -72,12 +78,12 @@ export class ChatService {
     return observable;
   }
 
-  isWriting(data){
+ /* isWriting(data){
     this.socket.emit('isWriting', data);
     console.log('passé ds le service')
   }
 
-   /* Non fonctionnel je sais pas pourquoi, à réessayer si l'envie me vient
+   Non fonctionnel je sais pas pourquoi, à réessayer si l'envie me vient
   qqnEcrit(){
     var observable = new Observable<{ username:String, message:String}>(observer =>{
       this.socket.on('isWriting', (data)=> {

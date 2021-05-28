@@ -1,6 +1,7 @@
 // import services
 import { ActiveGameService } from './../../active-game.service';
 import { UserService } from 'src/app/user.service';
+import { ChatService } from './../../chat.service';
 
 // default imports
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
@@ -30,19 +31,19 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   buttonRouterLink: string = '/login';
 
   /**
-   * 
+   *
    * @param activeGameService - active-game.service ; declare ici afin de pouvoir etre utilise dans ngOnChanges()
-   * 
+   *
    */
-  constructor(private activeGameService: ActiveGameService, private userService: UserService) { }
+  constructor(private activeGameService: ActiveGameService, private userService: UserService, private chatService: ChatService) { }
 
   ngOnInit(): void { }
 
   /**
-   * 
+   *
    * lors d'un changement de l'input (ici activeGame), appelle la methode getDescription() de active-game.service
    * afin de recuperer la description corresondant au nouveau jeu selectione
-   * 
+   *
    */
   ngOnChanges() {
     this.activeGameService.getDescription().subscribe(description => { this.description = description });
@@ -60,9 +61,9 @@ export class GameExpandedComponent implements OnInit, OnChanges {
   }
 
   /**
-   * 
+   *
    * Permet de modifier la valeur de la variable activeGame en fonction des choix de l'utilisateur
-   * 
+   *
    */
   changeTitle() {
     switch(this.activeGame) {
@@ -80,19 +81,23 @@ export class GameExpandedComponent implements OnInit, OnChanges {
       }
       case "garticPhones": {
         this.activeGametitle = "Gartic Phones";
-        
+
       }
     }
   }
 
   /**
-   * 
+   *
    * permet de fermer la sidebar lorsque l'utilisateur clique sur le bouton
    * (il est redirige sur une autre section du site - c'est le meme comportement que celui adopte dans le header)
-   * 
+   *
    */
   closeSideBar() {
     this.closeSideBarEvent.emit();
+  }
+
+  joinGame(gameRoom){
+    this.chatService.joinGame(gameRoom)
   }
 
 }

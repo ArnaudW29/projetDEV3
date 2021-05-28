@@ -1,4 +1,10 @@
 ul li {
     list-style: none;
   }
+
+@media screen and (max-width: 600px) {
+  mat-toolbar-row {
+    padding: 0;
+  }
+}
   

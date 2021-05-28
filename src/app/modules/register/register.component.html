@@ -1,0 +1,46 @@
+<mat-card>
+<mat-card-content>
+<div class="medium-list">
+    <div class="">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" action="https://devgames3.herokuapp.com/" method="post" noval>
+        <div class="form-container">
+          <div class="username-input">
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="username"
+                   matInput
+                   formControlName="username"
+                   [(ngModel)]="user.username"
+                   placeholder="Enter your username">
+          </mat-form-field>
+          </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="password"
+                   matInput
+                   formControlName="password"
+                   [(ngModel)]="user.password"
+                   placeholder="Enter your password"
+                   [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <input id="email"
+                   matInput
+                   formControlName="email"
+                   [(ngModel)]="user.email"
+                   placeholder="Enter your email">
+          </mat-form-field>
+          <br>
+          <button mat-button type="submit" class="mat-raised-button mat-primary" [disabled]="!registerForm.valid">Register</button>
+        </div>
+        
+        <br>
+
+        Tu as déjà un compte ? <a routerLinkActive="active" routerLink="/login">suis ce lien pour te connecter</a>
+      </form>
+    </div>
+</div>
+</mat-card-content>
+</mat-card>
+

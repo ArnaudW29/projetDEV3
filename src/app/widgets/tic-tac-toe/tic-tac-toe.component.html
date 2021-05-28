@@ -1,4 +1,16 @@
-<h1>Current Player: {{ player }} </h1>
+
+
+<div id="gameHeader" fxLayout="row">
+    <strong>Current Player: {{ player }} </strong>
+
+    <div fxFlex fxLayoutAlign="flex-end">
+        <button mat-mini-fab color="accent" (click)="toggleIngameSideBar()">
+            <mat-icon>message</mat-icon>
+        </button>
+    </div>
+</div>
+
+<br>
 
 <button mat-button color="warn" (click)="newGame()">Start new Game</button>
 

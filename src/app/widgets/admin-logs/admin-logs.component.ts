@@ -29,15 +29,4 @@ export class AdminLogsComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  /**
-   * 
-   * appelle la methode getUsernameFromId() de user.service
-   * 
-   * @param userId - id a transformer en nom d'utilisateur
-   * @returns - le nom d'utilisateur associe a userId
-   */
-  transformUserIdIntoUsername(userId){
-    return this.userService.getUsernameFromId(userId).subscribe();
-  }
-
 }

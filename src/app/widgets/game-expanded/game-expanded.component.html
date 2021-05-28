@@ -1,11 +1,34 @@
-<div fxLayout="row">
-    <div fxFlex="60">
-      <img src="https://picsum.photos/500/300" alt="">
-    </div>
-    <div fxFlex="40" fxLayout="column">
-      <div fxFlex="60">{{ description }}</div>
-  
-      <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="{{ '/' + activeGame }}">play now!</button>
-    </div>
+
+<h2>{{ activeGametitle }}</h2>
+
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="20px" id="scrollTarget">
+  <div fxFlex="60">
+    <img src="{{ gameImageUrl }}" alt="">
   </div>
-  
+  <div fxFlex="35" fxLayout="column">
+    <div fxFlex="60" >
+      {{ description }}
+    </div>
+    <div *ngIf="roomsVisibles; else elseBlock">
+      <form name='formulaireRooms' id= 'formulaireRooms'>
+        <tr id=  '${activeGame}'  ><td> Joueurs connectés<br> {{morpion.morpion1}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('1')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 2' ><td> Joueurs connectés<br>{{morpion.morpion2}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('2')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 3' ><td> Joueurs connecté<br>{{morpion.morpion3}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('3')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 4' ><td> Joueurs connectés<br>{{morpion.morpion4}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('4')"> Rejoindre</button></td></tr>
+
+        <tr id=  '${activeGame} 5' ><td> Joueurs connectés<br> {{morpion.morpion5}}/2 </td><td> <button  mat-raised-button color="primary" (click)="joinGame('5')"> Rejoindre</button></td></tr>
+      </form>
+    </div>
+    <ng-template #elseBlock>
+    <br>
+    <br>
+  </ng-template>
+
+
+    <button mat-stroked-button color="accent"
+     (click)="voirRooms(activeGame)">{{ buttonText }}</button>
+  </div>
+</div>

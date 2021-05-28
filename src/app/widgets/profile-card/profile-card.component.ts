@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+// default imports
+import { Component, OnInit, Input } from '@angular/core';
+
+// import services
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-widget-profile-card',
@@ -7,7 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() username!: string;
+
+  // variables
+  userEmail!: any;
+
+  /**
+   * 
+   * permet de recuperer l'email de l'utilisateur connecte des l'initialisation du component
+   * 
+   * @param userService 
+   */
+  constructor(private userService: UserService) {
+    this.userService.getEmail().subscribe(email => {
+      this.userEmail = email;
+    });
+  }
 
   ngOnInit(): void { }
 

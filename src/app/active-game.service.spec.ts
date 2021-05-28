@@ -1,16 +1,60 @@
+// default imports
 import { TestBed } from '@angular/core/testing';
 
+// tested component import
 import { ActiveGameService } from './active-game.service';
+
+// test http
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
+// model imports
+import { Score } from './models/score.models';
 
 describe('ActiveGameService', () => {
   let service: ActiveGameService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ActiveGameService]
+    });
     service = TestBed.inject(ActiveGameService);
+    httpMock = TestBed.inject(HttpTestingController);
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+    service.changeActiveGame("morpion");
+  });
+
+  it('getDescription() should http GET active game description', () => {
+    service.changeActiveGame("newActiveGame");
+    let expectedDescription: string = "game description";
+    service.getDescription().subscribe( description => {
+      expect(description).toEqual(expectedDescription), fail
+    });
+
+    const req = httpMock.expectOne(`${service.url}games/description/${service.game_url}`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(expectedDescription);
+  });
+
+  it('getLeaderboard() should http GET active game leaderboard', () => {
+    service.changeActiveGame("newActiveGame");
+    let expectedLeaderboard: Score[] = [
+      { pseudo: "pseudo1", score: "1"},
+      { pseudo: "pseudo2", score: "2"},
+      { pseudo: "pseudo3", score: "3"},
+      { pseudo: "pseudo4", score: "4"}
+    ] as Score[];
+    service.getLeaderboard().subscribe( leaderboard => {
+      expect(leaderboard).toBe(expectedLeaderboard), fail
+    });
+
+    const req = httpMock.expectOne(`${service.url}games/leaderboard/${service.game_url}`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(expectedLeaderboard);
   });
 });

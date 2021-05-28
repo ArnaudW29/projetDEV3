@@ -1,9 +1,15 @@
 // service imports
 import { UserService } from './user.service';
 import { ActiveGameService } from './active-game.service';
+import { SidebarService } from './sidebar.service';
+import { ChatService } from './chat.service';
 
 // default imports
 import { Component } from '@angular/core';
+
+// other imports
+import { HostListener } from "@angular/core";
+
 
 
 @Component({
@@ -12,50 +18,105 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  // variables
   username: any;
-  userIsAdmin: boolean = true;
-
+  userIsAdmin: any;
+  screenWidth: any = window.innerWidth;
   selectedGame: string = '';
-
-  sideBarOpen: boolean = false;
+  sideBarOpen: boolean;
+  sideBarMode: string;
 
   /**
-   * 
+   *
    * toggle la valeur de la variable sideBarOpen. celle-ci est utilisee pour definir l'etat ouvert ou ferme de la barre laterale
-   * 
+   *
    */
   sidebarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
   /**
-   * 
-   * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
-   * 
+   *
+   * permet de fermer la sidebar lorsque l'utilisateur clique sur un bouton de naviguation du header
+   *
    */
-  constructor(private userService: UserService, private activeGameService: ActiveGameService) { }
-
-  /**
-   * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
-   */
-  ngOnInit() {
-    this.username = this.userService.getUsername();
+  closeSideBar() {
+    console.log('test');
+    this.sideBarOpen = false;
   }
 
   /**
-   * 
+   *
+   * @param userService - user.service ; declare ici afin de pouvoir etre utilise dans ngOnInit()
+   *
+   */
+  constructor(private userService: UserService, private activeGameService: ActiveGameService, private sideBarService: SidebarService, private chatService: ChatService) {
+    this.userService.userIsAdmin$.subscribe(status => {this.userIsAdmin = (status == 'true');});
+
+  }
+
+  /**
+   * recupere le username de l'utilisateur connecte et l'enregistre dans la variable username
+   * Etablie la connexion io et récupère le pseudo pour le chatService
+   */
+  ngOnInit() {
+    this.username = this.userService.getUsername();
+    this.sideBarService.changeSideBarOpen(false);
+    this.sideBarService.getSideBarOpen().subscribe(sideBarOpen => this.sideBarOpen = sideBarOpen);
+    this.dynamicWindowResize();
+    this.chatService.setupConnection();
+    this.chatService.getUserName(this.username);
+  }
+
+  /**
+   *
    * change la valeur de la variable activeGame du service active-game.service et recupere
    * la description associee au nouveau jeu actif
-   * 
+   *
    * @param game - la nouvelle valeur de activeGame
    */
    dropActiveGame() {
     this.activeGameService.changeActiveGame('');
+    if (this.sideBarOpen) {
+      this.sideBarOpen = !this.sideBarOpen;
+    }
+  }
+
+  signOut() {
+
+  }
+
+  /**
+   *
+   * Permet un affichage responsive
+   *
+   */
+  dynamicWindowResize(){
+    if ( this.screenWidth < 1280) {
+      this.sideBarMode = "over";
+    }
+    else if ( this.screenWidth >= 1280) {
+      this.sideBarMode = "side";
+    }
+  }
+
+  /**
+   *
+   * permet de detecter un changement de largeur de l'écran (permet un design responsive tenant compte d'un
+   *  agrandissement/retrecissement de la fenetre du naviguateur)
+   *
+   * @param event
+   *
+   */
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenWidth = window.innerWidth;
+    this.dynamicWindowResize();
   }
 
 }
 
+// models
 export interface Description {
   name: string;
   description: string;

@@ -15,6 +15,12 @@
   mat-drawer-content {
     padding: 0 20px;
   }
+
+  @media only screen and (max-width: 400px) {
+    mat-drawer {
+      width: 80%;
+    }
+  }
   
   ::-webkit-scrollbar {
     width: 20px;

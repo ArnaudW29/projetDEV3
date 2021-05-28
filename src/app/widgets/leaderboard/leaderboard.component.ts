@@ -1,7 +1,9 @@
+// local imports
 import { Leaderboard } from './../../app.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActiveGameService } from './../../active-game.service';
 
+// default imports
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
@@ -13,6 +15,8 @@ export class LeaderboardComponent implements OnInit, OnChanges {
 
   @Input() selectedGame: string = '';
 
+  // variables
+  selectedGameTitle: string;
   displayedColumns: string[] = ['pseudo', 'score'];
   leaderboard: any;
 
@@ -33,5 +37,32 @@ export class LeaderboardComponent implements OnInit, OnChanges {
    */
   ngOnChanges() {
     this.activeGameService.getLeaderboard().subscribe( leaderboard => this.leaderboard = new MatTableDataSource<Leaderboard>(leaderboard));
+    this.changeLeaderboardTitle();
+  }
+
+  /**
+   * 
+   * Permet d'adapter le titre du tableau en fonction du choix de l'utilisateur
+   * 
+   */
+  changeLeaderboardTitle() {
+    switch(this.selectedGame) {
+      case "morpion": {
+        this.selectedGameTitle = "Morpion";
+        break
+      }
+      case "421": {
+        this.selectedGameTitle = "421";
+        break
+      }
+      case "puissance4": {
+        this.selectedGameTitle = "Puissance 4";
+        break
+      }
+      case "garticPhones": {
+        this.selectedGameTitle = "Gartic Phones";
+        break
+      }
+    }
   }
 }

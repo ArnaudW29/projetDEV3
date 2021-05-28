@@ -1,0 +1,65 @@
+body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:100px; }
+
+form, p, span {
+    margin:0;
+    padding:0; }
+
+input { font:12px arial; }
+
+#userMsg {
+  border:1px solid #ACD8F0;
+  height: 36px;
+}
+
+#wrapper {
+    margin:0 auto 50px auto;
+    padding: 10px;
+    background:#EBF4FB;
+    width: 500px;
+    border:1px solid #ACD8F0; }
+
+
+
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:15px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+
+ #formchat{
+   margin: 0 auto;
+ }
+
+#menu {
+  padding:12.5px 25px 12.5px 25px;
+  text-align: center;
+ }
+
+.joinChat{
+  color:rgb(43, 134, 47)
+
+}
+
+.leaveChat{
+  color:lightcoral
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper {
+    width: auto;
+  }
+  #envoie {
+    width: 100px;
+  }
+  #userMsg {
+    width: 90%;
+  }
+}

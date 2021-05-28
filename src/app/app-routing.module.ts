@@ -12,12 +12,15 @@ import { TicTacToeComponent } from './widgets/tic-tac-toe/tic-tac-toe.component'
 import { QuatreCentVingtEtUnComponent } from './widgets/quatre-cent-vingt-et-un/quatre-cent-vingt-et-un.component';
 import { PuissanceQuatreComponent } from './widgets/puissance-quatre/puissance-quatre.component';
 import { GarticPhonesComponent } from './widgets/gartic-phones/gartic-phones.component';
+import { RegisterComponent } from './modules/register/register.component';
+import { LoginComponent } from './modules/login/login.component';
+
 
 const routes: Routes = [{
   path: '',
   component: DashboardComponent,
 },{
-  path: 'game_1',
+  path: 'morpion1',
   component: GameScreenComponent,
   children: [
     {
@@ -26,7 +29,45 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_2',
+  path: 'morpion2',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},{
+  path: 'morpion3',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},
+{
+  path: 'morpion4',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},
+{
+  path: 'morpion5',
+  component: GameScreenComponent,
+  children: [
+    {
+      path: '',
+      component: TicTacToeComponent
+    }
+  ]
+},{
+  path: '421',
   component: GameScreenComponent,
   children: [
     {
@@ -35,7 +76,7 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_3',
+  path: 'puissance4',
   component: GameScreenComponent,
   children: [
     {
@@ -44,7 +85,7 @@ const routes: Routes = [{
     }
   ]
 },{
-  path: 'game_4',
+  path: 'garticPhones',
   component: GameScreenComponent,
   children: [
     {
@@ -61,7 +102,14 @@ const routes: Routes = [{
 },{
   path: 'about',
   component: AboutComponent
-}];
+},{
+  path: 'register',
+  component: RegisterComponent
+},{
+  path: 'login',
+  component: LoginComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

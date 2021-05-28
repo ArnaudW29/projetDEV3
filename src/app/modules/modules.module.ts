@@ -4,12 +4,14 @@
 
 // les composants declares dans ce module correspondent au composant
 // parent de chaque page de l'application (about, admin, dashboard,
-// game-screen, profile), a l'exception de la barre laterale des jeux
+// game-screen, profile, login, register), a l'exception de la barre laterale des jeux
 // qui est elle inclue au sein du composant game-screen
 
 // import other modules
 import { WidgetsModule } from './../widgets/widgets.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // import all module components
 import { ProfileComponent } from './profile/profile.component';
@@ -18,6 +20,8 @@ import { GameScreenComponent } from './game-screen/game-screen.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 // angular material imports
 import { AngularMaterialModule } from './../angular-material/angular-material.module';
@@ -34,14 +38,18 @@ import { AppRoutingModule } from './../app-routing.module';
     DashboardComponent,
     GameScreenComponent,
     IngameSidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     AngularMaterialModule,
     AppRoutingModule,
     WidgetsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     AboutComponent,
@@ -49,7 +57,8 @@ import { AppRoutingModule } from './../app-routing.module';
     DashboardComponent,
     GameScreenComponent,
     IngameSidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReactiveFormsModule,
   ]
 })
 export class ModulesModule { }

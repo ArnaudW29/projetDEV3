@@ -1,6 +1,6 @@
-<mat-drawer-container>
+<mat-drawer-container hasBackdrop="false">
 
-    <mat-drawer mode="side" opened position="end">
+    <mat-drawer mode={{ingameSideBarMode}} [opened]="ingameSideBarOpen" position="end">
         <app-ingame-sidebar></app-ingame-sidebar>
     </mat-drawer>
 

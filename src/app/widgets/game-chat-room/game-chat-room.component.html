@@ -1,1 +1,19 @@
-<p>game-chat-room works!</p>
+<div id="wrapper">
+  <div id="menu">
+    <strong> Salon textuel </strong>
+
+  </div>
+
+  <div id="chatbox">
+      <div id= 'msgBox'>
+          <div  *ngFor="let item of listeMsg;" [ngClass]=" {'joinChat':item.message=== ' a rejoint le chat', 'leaveChat': item.message=== ' a quitté le chat'} ">
+           <Strong>{{item.username}} : </Strong> {{item.message}} <br>
+          </div>
+      </div>
+  </div>
+
+  <form action = '#' id ='formChat' name= 'formChat' fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.gt-xs="20px" fxLayoutGap.lt-sm="10px" fxLayoutAlign=" center" >
+      <input name="userMsg" type="text" id="userMsg" [(ngModel)]="contentMsg" placeholder="Envoyer un message" fxFlex.gt-xs="80">
+      <button name="submit"  mat-raised-button color="primary" (click)='envoieMsg();'  id="envoie" fxFlex.gt-sm="20">Envoyer</button>
+  </form>
+</div>
